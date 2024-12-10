@@ -1,0 +1,1 @@
+https://dormy-hotels.com/resort/hotels/shikishimakan/facilities/

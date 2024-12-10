@@ -1,0 +1,62 @@
+{
+  "name": "my-app",
+  "version": "0.1.0",
+  "private": true,
+  "engines": {
+    "node": ">=20.x <23.x"
+  },
+  "scripts": {
+    "dev": "next dev --turbopack",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "test": "next build && npx serve@latest out",
+    "format": "prettier --write . && next lint",
+    "generate": "graphql-codegen",
+    "codegen": "graphql-codegen --config codegen.ts --watch",
+    "gen": "graphql-codegen --config codegen.ts",
+    "build-storybook": "storybook build",
+    "svg": "npx @svgr/cli .svgrrc --typescript --out-dir ./src/stories/icons ./src/stories/assets/icons"
+  },
+  "dependencies": {
+    "@tanstack/react-query": "^5.62.3",
+    "graphql": "^16.9.0",
+    "graphql-request": "^7.1.2",
+    "next": "^15.0.4",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "react-hook-form": "^7.54.0",
+    "zod": "^3.23.8",
+    "zustand": "^5.0.2"
+  },
+  "devDependencies": {
+    "@chromatic-com/storybook": "^3.2.2",
+    "@graphql-codegen/cli": "^5.0.3",
+    "@graphql-codegen/client-preset": "4.5.0",
+    "@graphql-codegen/introspection": "4.0.3",
+    "@graphql-codegen/near-operation-file-preset": "^3.0.0",
+    "@graphql-codegen/typescript": "^4.1.1",
+    "@graphql-codegen/typescript-document-nodes": "^4.0.11",
+    "@graphql-codegen/typescript-operations": "^4.3.1",
+    "@graphql-codegen/typescript-react-apollo": "^4.3.2",
+    "@hookform/resolvers": "^3.9.1",
+    "@svgr/cli": "^8.1.0",
+    "@tanstack/react-query-devtools": "^5.61.0",
+    "@types/node": "^20",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "@types/sanitize-html": "^2.13.0",
+    "clsx": "^2.1.1",
+    "eslint": "^8.57.1",
+    "eslint-config-next": "15.0.1",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-prettier": "^5.2.1",
+    "eslint-plugin-storybook": "^0.11.1",
+    "lowdb": "^7.0.1",
+    "postcss": "^8.4.49",
+    "prettier": "^3.3.3",
+    "sanitize-html": "^2.13.1",
+    "tailwindcss": "^3.4.15",
+    "typescript": "^5.6.3"
+  }
+}
