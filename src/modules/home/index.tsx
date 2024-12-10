@@ -5,6 +5,7 @@ import Pickup from '../shared/library/Pickup'
 import ServiceHome from './library/ServiceHome'
 import GalleryHome from './library/GalleryHome'
 import Information from '../shared/library/Information'
+import FeatureHome from './library/FeatureHome'
 
 const Home = () => {
   return (
@@ -12,6 +13,7 @@ const Home = () => {
       <HeroHome />
       <News />
       <Pickup />
+      <FeatureHome />
       <ServiceHome />
       <Information />
       <News />

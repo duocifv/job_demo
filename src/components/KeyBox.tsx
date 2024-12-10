@@ -12,8 +12,10 @@ const KeyBox = () => {
   const [edit, setEdit] = useState(false)
   const [view, setView] = useState<Item | null>(null)
   const pathname = usePathname()
-  const segments = pathname.replace(/^\/|\/$/g, '').replaceAll('/', '_')
-
+  const segments =
+    pathname === '/'
+      ? 'home'
+      : pathname.replace(/^\/|\/$/g, '').replaceAll('/', '_')
   useEffect(() => {
     fetch(`${endpoint}/list/${segments}`, {
       method: 'GET',
@@ -29,7 +31,8 @@ const KeyBox = () => {
           }))
           setItems(result)
         } else {
-          console.error(`Error: ${response.status} - ${await response.text()}`)
+          console.log(`Error: ${response.status} - ${await response.text()}`)
+          return
         }
       })
       .catch((error) => console.error('Error fetching data:', error))
@@ -48,7 +51,13 @@ const KeyBox = () => {
       <div
         className={`p-4 min-h-full ${edit ? 'hidden' : ''} max-h-full overflow-y-scroll`}
       >
-        <UpdateBox segments={segments} items={items} setItems={setItems} view={view} setView={setView} />
+        <UpdateBox
+          segments={segments}
+          items={items}
+          setItems={setItems}
+          view={view}
+          setView={setView}
+        />
 
         <FormBox
           items={items}
@@ -142,7 +151,7 @@ const UpdateList = (p) => {
     list[item[0]] = value || item[1]
     useEffect(() => {
       p.setEditValue(list)
-      console.log("item", list)
+      console.log('item', list)
     }, [value])
     return (
       <div key={index}>
@@ -168,7 +177,7 @@ const ListBox = (p) => {
         let valuesArray
         if (typeof value === 'object' && value !== null) {
           const content = JSON.stringify(value, null, 2)
-          valuesArray = Object.entries(JSON.parse(content));
+          valuesArray = Object.entries(JSON.parse(content))
         }
         return (
           <div
@@ -185,13 +194,23 @@ const ListBox = (p) => {
                   Edit
                 </button>
               </div>
-              {valuesArray
-                ? valuesArray?.map((item, index) => item[0] &&  (
-                    <div className='flex leading-5 p-1 text-sm' key={index}>
-                      <div>{item[1]}<span className='text-sm bg-white ml-2 px-1 rounded-lg text-[13px]'>{item[0]}</span></div>
-                    </div>
-                  ))
-                : <div className='text-sm'>{value}</div>}
+              {valuesArray ? (
+                valuesArray?.map(
+                  (item, index) =>
+                    item[0] && (
+                      <div className="flex leading-5 p-1 text-sm" key={index}>
+                        <div>
+                          {item[1]}
+                          <span className="text-sm bg-white ml-2 px-1 rounded-lg text-[13px]">
+                            {item[0]}
+                          </span>
+                        </div>
+                      </div>
+                    )
+                )
+              ) : (
+                <div className="text-sm">{value}</div>
+              )}
             </div>
           </div>
         )
@@ -255,15 +274,18 @@ const FormBox = (p) => {
       return acc
     }, {})
 
-    let urlParam = 'update'
-    if (!p.items) {
+    let urlParam = `update/${p.segments}`
+    let method = 'PUT'
+    if (p.items.length === 0) {
       urlParam = 'add'
+      method = 'POST'
     }
 
-    fetch(`${endpoint}/${urlParam}/${p.segments}`, {
-      method: 'PUT',
+    fetch(`${endpoint}/${urlParam}`, {
+      method,
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
+        name: p.segments,
         data: data,
       }),
     })
@@ -356,7 +378,7 @@ const UpdateBox = (p) => {
     const updatedItems = p.items.map((item) => {
       return item[p.view.key] ? { [editKey || p.view.key]: editValue } : item
     })
-    
+
     const result = updatedItems.reduce((acc, obj) => {
       const [key, value] = Object.entries(obj)[0]
       acc[key] = value
@@ -383,42 +405,45 @@ const UpdateBox = (p) => {
     updateList = Object.entries(p.view?.value)
   }
 
-  return p.view && (
-    <div className="absolute inset-0 bg-gray-200 z-50 p-4">
-      <button
-        className="ml-auto block px-4 py-1 text-blue-500"
-        onClick={() => p.setView(null)}
-      >
-        Close
-      </button>
-      <label htmlFor="editKey">Key</label>
-      <input
-        type="text"
-        className="border border-gray-600 rounded-md block w-full px-3 mb-2"
-        defaultValue={p.view.key}
-        onChange={(e) => setEditKey(inputChange(e))}
-      />
-     
-      {updateList ? (
-        <UpdateList updateList={updateList} setEditValue={setEditValue} />
-      ) : (
-        <>
-        <label htmlFor="editValue">Value</label>
-        <textarea
-          rows={5}
-          className="border border-gray-600 rounded-md block w-full px-3 mb-4"
-          defaultValue={p.view.value}
-          onChange={(e) => setEditValue(e.target.value)}
-        /></>
-      )}
+  return (
+    p.view && (
+      <div className="absolute inset-0 bg-gray-200 z-50 p-4">
+        <button
+          className="ml-auto block px-4 py-1 text-blue-500"
+          onClick={() => p.setView(null)}
+        >
+          Close
+        </button>
+        <label htmlFor="editKey">Key</label>
+        <input
+          type="text"
+          className="border border-gray-600 rounded-md block w-full px-3 mb-2"
+          defaultValue={p.view.key}
+          onChange={(e) => setEditKey(inputChange(e))}
+        />
 
-      <button
-        className="bg-blue-500 text-white px-4 py-2"
-        onClick={handleUpdate}
-      >
-        Update
-      </button>
-    </div>
+        {updateList ? (
+          <UpdateList updateList={updateList} setEditValue={setEditValue} />
+        ) : (
+          <>
+            <label htmlFor="editValue">Value</label>
+            <textarea
+              rows={5}
+              className="border border-gray-600 rounded-md block w-full px-3 mb-4"
+              defaultValue={p.view.value}
+              onChange={(e) => setEditValue(e.target.value)}
+            />
+          </>
+        )}
+
+        <button
+          className="bg-blue-500 text-white px-4 py-2"
+          onClick={handleUpdate}
+        >
+          Update
+        </button>
+      </div>
+    )
   )
 }
 

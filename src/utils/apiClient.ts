@@ -1,8 +1,7 @@
-'use client'
 import { useAppStore } from '../modules/shared/store/app.store'
 
 // const endpoint = 'https://api.duocnv.top'
-const endpoint = `http://localhost:3001`
+const endpoint = `https://cms.duocnv.top/wp-json/custom-data-json/v1`
 
 type Method = 'GET' | 'POST' | 'PUT' | 'PATCH'
 type Options = object
@@ -16,7 +15,7 @@ type Body = {
 export const client = {
   // Generic method for handling different HTTP requests
   request: async (method: Method, payload: Payload, body: Body) => {
-    const token = useAppStore.getState().accessToken
+    const token = undefined
     const res = await fetch(`${endpoint}/${payload}`, {
       method,
       headers: {
@@ -39,7 +38,7 @@ export const client = {
   // Helper function for error handling
   handleError: async (res: Response) => {
     if (res.status === 401) {
-      useAppStore.setState({ accessToken: "" })
+      //useAppStore.setState({ accessToken: "" })
       return res.status
     }
     return res
