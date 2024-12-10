@@ -40,7 +40,7 @@ const KeyBox = () => {
 
   return (
     <div
-      className={`fixed top-0 left-0 w-80 min-h-full bg-gray-200 p-0  ${edit && '!w-0'}`}
+      className={`fixed z-50 top-0 left-0 w-80 min-h-full bg-gray-200 p-0  ${edit && '!w-0'}`}
     >
       <button
         onClick={() => setEdit(!edit)}

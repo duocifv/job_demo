@@ -6,6 +6,8 @@ import ServiceHome from './library/ServiceHome'
 import GalleryHome from './library/GalleryHome'
 import Information from '../shared/library/Information'
 import FeatureHome from './library/FeatureHome'
+import PricingHome from './library/PricingHome'
+import ProductListHome from './library/ProductListHome'
 
 const Home = () => {
   return (
@@ -14,6 +16,8 @@ const Home = () => {
       <News />
       <Pickup />
       <FeatureHome />
+      <ProductListHome />
+      <PricingHome />
       <ServiceHome />
       <Information />
       <News />

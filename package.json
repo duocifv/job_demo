@@ -6,7 +6,7 @@
     "node": ">=20.x <23.x"
   },
   "scripts": {
-    "dev": "next dev --turbopack",
+    "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
@@ -19,7 +19,9 @@
     "svg": "npx @svgr/cli .svgrrc --typescript --out-dir ./src/stories/icons ./src/stories/assets/icons"
   },
   "dependencies": {
+    "@heroicons/react": "^2.2.0",
     "@tanstack/react-query": "^5.62.3",
+    "classnames": "^2.5.1",
     "graphql": "^16.9.0",
     "graphql-request": "^7.1.2",
     "next": "^15.0.4",
@@ -30,15 +32,6 @@
     "zustand": "^5.0.2"
   },
   "devDependencies": {
-    "@chromatic-com/storybook": "^3.2.2",
-    "@graphql-codegen/cli": "^5.0.3",
-    "@graphql-codegen/client-preset": "4.5.0",
-    "@graphql-codegen/introspection": "4.0.3",
-    "@graphql-codegen/near-operation-file-preset": "^3.0.0",
-    "@graphql-codegen/typescript": "^4.1.1",
-    "@graphql-codegen/typescript-document-nodes": "^4.0.11",
-    "@graphql-codegen/typescript-operations": "^4.3.1",
-    "@graphql-codegen/typescript-react-apollo": "^4.3.2",
     "@hookform/resolvers": "^3.9.1",
     "@svgr/cli": "^8.1.0",
     "@tanstack/react-query-devtools": "^5.61.0",
