@@ -1,4 +1,4 @@
-import clsx from 'clsx'
+import classnames from "classnames"
 import React, { FC, ReactNode } from 'react'
 
 const Cols: FC<{
@@ -7,7 +7,7 @@ const Cols: FC<{
 }> = (p) => {
   return (
     <div className="text-sm">
-      <ul className={clsx(p.className, 'flex mx-auto')}>
+      <ul className={classnames(p.className, 'flex mx-auto')}>
         {p.data?.map((item, index) => <li key={index}>{item}</li>)}
       </ul>
     </div>

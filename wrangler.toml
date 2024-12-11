@@ -1,7 +1,6 @@
-name = "your-project-name"
-type = "javascript"  # Hoặc "webpack", "rust", tùy vào loại dự án của bạn
+[build]
+  command = "pnpm build"
+  output_dir = "dist"
 
-account_id = "your-cloudflare-account-id"
-workers_dev = true
-route = ""
-zone_id = ""
+[build.upload]
+  format = "service-worker"
