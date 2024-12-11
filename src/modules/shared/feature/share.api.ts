@@ -16,6 +16,7 @@ export const MenuQuery = gql`
 `
 
 export const shareMenuApi = async () => {
+  return
   try {
     return await query<any>(MenuQuery)
   } catch (error) {

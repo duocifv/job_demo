@@ -6,16 +6,13 @@
     "node": ">=20.x <23.x"
   },
   "scripts": {
-    "dev": "next dev",
+    "dev":  "next dev --turbopack",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
     "test": "next build && npx serve@latest out",
     "format": "prettier --write . && next lint",
-    "generate": "graphql-codegen",
-    "codegen": "graphql-codegen --config codegen.ts --watch",
     "gen": "graphql-codegen --config codegen.ts",
-    "build-storybook": "storybook build",
     "svg": "npx @svgr/cli .svgrrc --typescript --out-dir ./src/stories/icons ./src/stories/assets/icons"
   },
   "dependencies": {
@@ -24,7 +21,7 @@
     "classnames": "^2.5.1",
     "graphql": "^16.9.0",
     "graphql-request": "^7.1.2",
-    "next": "^15.0.4",
+    "next": "^15.1.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-hook-form": "^7.54.0",
@@ -49,6 +46,7 @@
     "postcss": "^8.4.49",
     "prettier": "^3.3.3",
     "sanitize-html": "^2.13.1",
+    "sass": "^1.82.0",
     "tailwindcss": "^3.4.15",
     "typescript": "^5.6.3"
   }

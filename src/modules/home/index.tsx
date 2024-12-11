@@ -1,28 +1,17 @@
 import React from 'react'
 import HeroHome from './library/HeroHome'
-import News from '../shared/library/News'
-import Pickup from '../shared/library/Pickup'
-import ServiceHome from './library/ServiceHome'
-import GalleryHome from './library/GalleryHome'
 import Information from '../shared/library/Information'
-import FeatureHome from './library/FeatureHome'
-import PricingHome from './library/PricingHome'
-import ProductListHome from './library/ProductListHome'
+import './stylesheet/home.scss'
+import ServiceHome from './library/ServiceHome'
+import MainHome from './library/MainHome'
 
 const Home = () => {
   return (
     <div>
       <HeroHome />
-      <News />
-      <Pickup />
-      <FeatureHome />
-      <ProductListHome />
-      <PricingHome />
+      <MainHome />
       <ServiceHome />
       <Information />
-      <News />
-      <Pickup />
-      <GalleryHome />
     </div>
   )
 }

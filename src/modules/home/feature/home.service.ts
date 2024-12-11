@@ -1,6 +1,7 @@
 import { homeApi } from './home.api'
 
 export const homeService = async () => {
+  return null
   const result = await homeApi()
   if (!result?.data[0]?.data) {
     console.error('Không có dữ liệu ', result)

@@ -2,11 +2,40 @@ import React from 'react'
 import { shareMenuService } from '../feature/share.service'
 
 const Menu = async () => {
-  const list = await shareMenuService()
-  console.log('data22', list)
+  //const list = await shareMenuService()
   return (
     <menu className="menu">
-      {list?.map((item: any, index) => {
+      <li className="menu-item">
+        <a href="#" className="menu-link">
+          about
+        </a>
+      </li>
+      <li className="menu-item">
+        <a href="#" className="menu-link">
+          about
+        </a>
+      </li>
+      <li className="menu-item">
+        <a href="#" className="menu-link">
+          about
+        </a>
+      </li>
+      <li className="menu-item">
+        <a href="#" className="menu-link">
+          about
+        </a>
+      </li>
+      <li className="menu-item">
+        <a href="#" className="menu-link">
+          about
+        </a>
+      </li>
+      <li className="menu-item">
+        <a href="#" className="menu-link">
+          about
+        </a>
+      </li>
+      {/* {list?.map((item: any, index) => {
         return (
           <li className="menu-item" key={index}>
             <a href="#" className="menu-link">
@@ -24,7 +53,7 @@ const Menu = async () => {
             </div>}
           </li>
         )
-      })}
+      })} */}
     </menu>
   )
 }

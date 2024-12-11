@@ -23,5 +23,6 @@ export const shareMenuService = async () => {
     return acc
   }, {})
 
+
   return Object.values(menu)
 }

@@ -1,9 +1,8 @@
 import type { Metadata } from 'next'
-import '@/styles/globals.css'
+import "@/global.css"
+import '../modules/shared/stylesheet/shared.css'
 import ProviderClient from './ProviderClient'
 import { ReactNode } from 'react'
-
-import '@/styles/tailwind.css'
 import KeyBox from '@/components/KeyBox'
 import Header from '@/modules/shared/library/Header'
 import Wrapper from '@/modules/shared/library/Wrapper'

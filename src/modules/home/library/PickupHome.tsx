@@ -2,7 +2,7 @@ import Cols from '@/components/Cols'
 import Picture from '@/components/Picture'
 import React from 'react'
 
-const Pickup = () => {
+const PickupHome = () => {
   return (
     <div className='pt-6'>
       <Cols
@@ -26,4 +26,4 @@ const Pickup = () => {
   )
 }
 
-export default Pickup
+export default PickupHome
