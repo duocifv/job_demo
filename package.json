@@ -36,13 +36,13 @@
     "@types/sanitize-html": "^2.13.0",
     "sass": "^1.82.0",
     "sanitize-html": "^2.13.1",
+    "eslint-config-next": "15.1.0",
     "eslint": "^9.16.0"
   },
   "devDependencies": {
     "@heroicons/react": "^2.2.0",
     "@hookform/resolvers": "^3.9.1",
     "@svgr/cli": "^8.1.0",
-    "eslint-config-next": "15.1.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-prettier": "^5.2.1",
     "lowdb": "^7.0.1",
