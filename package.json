@@ -32,6 +32,7 @@
     "@types/node": "^22.10.2",
     "@types/react": "^19.0.1",
     "@types/react-dom": "^19.0.2",
+    "classnames": "^2.5.1",
     "eslint": "^9.16.0"
   },
   "devDependencies": {
@@ -39,7 +40,6 @@
     "@hookform/resolvers": "^3.9.1",
     "@svgr/cli": "^8.1.0",
     "@types/sanitize-html": "^2.13.0",
-    "classnames": "^2.5.1",
     "eslint-config-next": "15.1.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-prettier": "^5.2.1",
