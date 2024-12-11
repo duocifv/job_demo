@@ -33,13 +33,15 @@
     "@types/react": "^19.0.1",
     "@types/react-dom": "^19.0.2",
     "classnames": "^2.5.1",
+    "@types/sanitize-html": "^2.13.0",
+    "sass": "^1.82.0",
     "eslint": "^9.16.0"
   },
   "devDependencies": {
     "@heroicons/react": "^2.2.0",
     "@hookform/resolvers": "^3.9.1",
     "@svgr/cli": "^8.1.0",
-    "@types/sanitize-html": "^2.13.0",
+    
     "eslint-config-next": "15.1.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-prettier": "^5.2.1",
@@ -47,6 +49,6 @@
     "postcss": "^8.4.49",
     "prettier": "^3.4.2",
     "sanitize-html": "^2.13.1",
-    "sass": "^1.82.0"
+    
   }
 }
