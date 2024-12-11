@@ -3,6 +3,9 @@ const nextConfig = {
     unoptimized: true,
   },
   output: 'export',
+  experimental: {
+    buildCache: true,
+  },
   // productionBrowserSourceMaps: false,
 }
 
