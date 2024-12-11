@@ -4,7 +4,6 @@ const nextConfig = {
   },
   output: 'export',
   reactStrictMode: true,
-  swcMinify: true, // Minify code using SWC
   // productionBrowserSourceMaps: false,
 }
 
