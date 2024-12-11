@@ -20,8 +20,8 @@
       }
     ],
     "paths": {
-      "@/*": ["./src/*"],
-      "modules/*": ["./src/modules/*"]
+      "@/*": ["src/*"],
+      "modules/*": ["src/modules/*"]
     }
   },
   "include": [
