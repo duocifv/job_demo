@@ -22,7 +22,7 @@ const Picture = ({
       )
     : src
   return (
-    <img
+    <Image
       {...props}
       src={updatedSrc}
       alt={alt || 'images '}

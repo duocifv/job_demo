@@ -23,7 +23,7 @@ const KeyBox = () => {
     })
       .then(async (response) => {
         if (response.ok) {
-          const { data } = await response?.json()
+          const { data } = await response.json()
           if (!data) return setItems([])
           const text = JSON.parse(data)
           const result = Object.keys(text?.data).map((key) => ({
@@ -144,28 +144,37 @@ const Row = (p) => {
 }
 
 const UpdateList = (p) => {
-  let list = {}
-  return p.updateList?.map((item, index) => {
-    const [value, setValue] = useState<string>()
-    // if(item[0] === 'undefined' || item[0] === '') return
-    list[item[0]] = value || item[1]
-    useEffect(() => {
-      p.setEditValue(list)
-      console.log('item', list)
-    }, [value])
-    return (
-      <div key={index}>
-        {item[0]}
-        <textarea
-          rows={5}
-          className="border border-gray-600 rounded-md block w-full px-3 mb-4"
-          value={value || item[1]}
-          defaultValue={item[1]}
-          onChange={(e) => setValue(e.target.value)}
-        />
-      </div>
-    )
-  })
+  const [values, setValues] = useState<{ [key: string]: string }>({}) // State để lưu tất cả các giá trị
+
+  const handleChange = (key: string, value: string) => {
+    setValues((prevValues) => ({
+      ...prevValues,
+      [key]: value,
+    }))
+  }
+
+  useEffect(() => {
+    p.setEditValue(values)
+  }, [values, p])
+
+  return (
+    <>
+      {p.updateList?.map((item, index) => {
+        const value = values[item[0]] || item[1] // Nếu chưa có giá trị, dùng item[1] làm giá trị mặc định
+        return (
+          <div key={index}>
+            {item[0]}
+            <textarea
+              rows={5}
+              className="border border-gray-600 rounded-md block w-full px-3 mb-4"
+              value={value}
+              onChange={(e) => handleChange(item[0], e.target.value)} // Cập nhật giá trị cho mỗi item
+            />
+          </div>
+        )
+      })}
+    </>
+  )
 }
 
 const ListBox = (p) => {
@@ -224,7 +233,6 @@ const FormBox = (p) => {
   const [value, setValue] = useState<string>('')
   const [rows, setRows] = useState(1)
   const [image, setImage] = useState(null)
-  const [preview, setPreview] = useState(null)
   const [loading, setLoading] = useState(false)
   const [values, setValues] = useState<object>({})
 
@@ -343,17 +351,6 @@ const FormBox = (p) => {
             loading={loading}
           />
         ))}
-
-      {preview && (
-        <div>
-          <h3>Preview:</h3>
-          <img
-            src={preview}
-            alt="Image Preview"
-            style={{ width: '200px', height: 'auto' }}
-          />
-        </div>
-      )}
 
       <div className="flex justify-between">
         <button

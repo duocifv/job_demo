@@ -8,14 +8,14 @@ const Menu = async () => {
       {list?.map((item: any, index) => {
         return (
           <li className="menu-item" key={index}>
-            <a href="#" className="menu-link">
+            <a href="/1212" rel="noreferrer" className="menu-link">
               {item.label}
             </a>
             {item.children.length > 0 && (
               <div className="menu-sub">
                 {item.children.map((item, index) => (
                   <div key={index}>
-                    <a href="#" className="menu-sub-link">
+                    <a href="/1212" rel="noreferrer" className="menu-sub-link">
                       {item.label}
                     </a>
                   </div>

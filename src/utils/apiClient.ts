@@ -1,6 +1,3 @@
-import { useAppStore } from '../modules/shared/store/app.store'
-
-// const endpoint = 'https://api.duocnv.top'
 const endpoint = `https://cms.duocnv.top/wp-json/custom-data-json/v1`
 
 type Method = 'GET' | 'POST' | 'PUT' | 'PATCH'
@@ -8,7 +5,7 @@ type Options = object
 type Payload = string
 type Body = {
   options?: Options
-  headers?: HeadersInit
+  headers?: any
   credentials?: boolean
 }
 
@@ -28,8 +25,8 @@ export const client = {
     })
 
     if (!res.ok) {
-       client.handleError(res)
-       throw new Error("Failed to fetch")
+      client.handleError(res)
+      throw new Error('Failed to fetch')
     }
 
     return await res.json()

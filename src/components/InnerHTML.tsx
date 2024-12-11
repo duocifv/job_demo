@@ -58,7 +58,12 @@ const InnerHTML = ({ node, className }: SafeHTMLRendererProps) => {
     return sanitizeHtml(node, sanitizeOptions)
   }, [node])
 
-  return <div className={className} dangerouslySetInnerHTML={{ __html: sanitizedContent }} />
+  return (
+    <div
+      className={className}
+      dangerouslySetInnerHTML={{ __html: sanitizedContent }}
+    />
+  )
 }
 
 export default InnerHTML

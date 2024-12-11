@@ -21,7 +21,7 @@
     ],
     "paths": {
       "@/*": ["./src/*"],
-      "modules/*": ["./src/modules/*"],
+      "modules/*": ["./src/modules/*"]
     }
   },
   "include": [
@@ -31,7 +31,8 @@
     ".next/types/**/*.ts",
     "next.config.mjs",
     "../../tailwind.config.ts",
-    "src/app/pages/page.jsx"
-, "src/modules/auth/library/RegisterForm.tsx"  ],
+    "src/app/pages/page.jsx",
+    "src/modules/auth/library/RegisterForm.tsx"
+, "src/utils/db.ts_old"  ],
   "exclude": ["node_modules", "src/gql"]
 }

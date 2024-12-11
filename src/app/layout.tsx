@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import "@/global.css"
+import '@/global.css'
 import '../modules/shared/stylesheet/shared.css'
 import ProviderClient from './ProviderClient'
 import { ReactNode } from 'react'
