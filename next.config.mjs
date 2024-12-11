@@ -3,9 +3,8 @@ const nextConfig = {
     unoptimized: true,
   },
   output: 'export',
-  experimental: {
-    buildCache: true,
-  },
+  reactStrictMode: true,
+  swcMinify: true, // Minify code using SWC
   // productionBrowserSourceMaps: false,
 }
 
