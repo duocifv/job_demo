@@ -1,5 +1,4 @@
 import React from 'react'
-import PickupHome from './PickupHome'
 import NewsHome from './NewsHome'
 
 const MainHome = () => {
