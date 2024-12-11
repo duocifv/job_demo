@@ -12,7 +12,7 @@ importers:
         specifier: ^2.2.0
         version: 2.2.0(react@19.0.0)
       '@tanstack/react-query':
-        specifier: ^5.62.3
+        specifier: ^5.62.7
         version: 5.62.7(react@19.0.0)
       classnames:
         specifier: ^2.5.1
@@ -36,7 +36,7 @@ importers:
         specifier: ^7.54.0
         version: 7.54.0(react@19.0.0)
       zod:
-        specifier: ^3.23.8
+        specifier: ^3.24.1
         version: 3.24.1
       zustand:
         specifier: ^5.0.2
@@ -49,16 +49,16 @@ importers:
         specifier: ^8.1.0
         version: 8.1.0(typescript@5.7.2)
       '@tanstack/react-query-devtools':
-        specifier: ^5.61.0
+        specifier: ^5.62.7
         version: 5.62.7(@tanstack/react-query@5.62.7(react@19.0.0))(react@19.0.0)
       '@types/node':
-        specifier: ^20
+        specifier: ^20.17.10
         version: 20.17.10
       '@types/react':
-        specifier: ^18
+        specifier: ^18.3.16
         version: 18.3.16
       '@types/react-dom':
-        specifier: ^18
+        specifier: ^18.3.5
         version: 18.3.5(@types/react@18.3.16)
       '@types/sanitize-html':
         specifier: ^2.13.0
@@ -88,7 +88,7 @@ importers:
         specifier: ^8.4.49
         version: 8.4.49
       prettier:
-        specifier: ^3.3.3
+        specifier: ^3.4.2
         version: 3.4.2
       sanitize-html:
         specifier: ^2.13.1
@@ -97,10 +97,10 @@ importers:
         specifier: ^1.82.0
         version: 1.82.0
       tailwindcss:
-        specifier: ^3.4.15
+        specifier: ^3.4.16
         version: 3.4.16
       typescript:
-        specifier: ^5.6.3
+        specifier: ^5.7.2
         version: 5.7.2
 
 packages:
