@@ -31,6 +31,8 @@ const HeroHome = () => {
           <Image
             className="hero-photo"
             src="https://img.dormy-hotels.com/resort/hotels/kikuya/facilities/images/img_title.webp"
+            width={500}
+            height={500}
             alt=""
           />
         </figure>
