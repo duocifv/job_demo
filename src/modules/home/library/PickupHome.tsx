@@ -4,18 +4,21 @@ import React from 'react'
 
 const PickupHome = () => {
   return (
-    <div className='pt-6'>
+    <div className="pt-6">
       <Cols
         data={[
           <Picture
+            key={1}
             src="https://img.dormy-hotels.com/dms-cp.com/public/media/cms_v2/2024/1107/3203/4768/241105_youtube_kyoritsu@2x.jpg?w=640&fit=inside&ext=webp"
             alt={''}
           />,
           <Picture
+            key={2}
             src="https://img.dormy-hotels.com/dms-cp.com/public/media/cms_v2/2024/1107/3203/4768/241105_youtube_kyoritsu@2x.jpg?w=640&fit=inside&ext=webp"
             alt={''}
           />,
           <Picture
+            key={3}
             src="https://img.dormy-hotels.com/dms-cp.com/public/media/cms_v2/2024/1107/3203/4768/241105_youtube_kyoritsu@2x.jpg?w=640&fit=inside&ext=webp"
             alt={''}
           />,

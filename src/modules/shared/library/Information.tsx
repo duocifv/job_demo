@@ -1,4 +1,4 @@
-"use client"
+'use client'
 import React, { useState } from 'react'
 
 const Information = () => {
@@ -21,7 +21,12 @@ const Item = () => {
   return (
     <div className="p-4 bg-white relative border-b-2">
       <button className="absolute right-4">{open ? '+' : '-'}</button>
-      <h4 className="text-center mb-4 text-lg font-bold" onClick={() => setOpen(!open)}>施設概要</h4>
+      <button
+        className="text-center mb-4 text-lg font-bold"
+        onClick={() => setOpen(!open)}
+      >
+        施設概要
+      </button>
       {open && (
         <ul className="mx-auto w-2/4">
           <li className="flex w-full">

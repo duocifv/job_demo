@@ -74,7 +74,7 @@ const server = http.createServer((req, res) => {
         }
 
         // Cập nhật dữ liệu (Ở đây bạn có thể thay đổi cách cập nhật dữ liệu tùy theo nhu cầu)
-        const updatedData = {...existingData, ...items} // Hoặc bạn có thể thay thế hoàn toàn dữ liệu nếu cần
+        const updatedData = { ...existingData, ...items } // Hoặc bạn có thể thay thế hoàn toàn dữ liệu nếu cần
 
         // Ghi dữ liệu vào file
         fs.writeFileSync(filePath, JSON.stringify(updatedData, {}, 2))

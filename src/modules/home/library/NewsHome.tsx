@@ -6,7 +6,7 @@ const NewsHome = async () => {
   return (
     <div className="pt-16">
       <div className="news">
-        <div className='flex justify-center flex-wrap'>
+        <div className="flex justify-center flex-wrap">
           <div className="news-col flex-grow-0">
             <h2 className="news-title">News</h2>
           </div>
@@ -18,6 +18,7 @@ const NewsHome = async () => {
                     href={`blog/${node?.slug}`}
                     className="news-link"
                     target="_blank"
+                    rel="noreferrer"
                   >
                     <span className="news-date">{node?.date}</span>
                     <h4 className="news-copy">{node?.title}</h4>
@@ -27,10 +28,9 @@ const NewsHome = async () => {
             </ul>
           </div>
           <div className="basis-full text-right pt-2">
-          <a href='#'>View more</a>
+            <a href="/dasd">View more</a>
           </div>
         </div>
-        
       </div>
     </div>
   )

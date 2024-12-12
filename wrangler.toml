@@ -1,0 +1,6 @@
+[build]
+  command = "pnpm build"
+  output_dir = "dist"
+
+[build.upload]
+  format = "service-worker"

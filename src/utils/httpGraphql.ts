@@ -29,7 +29,7 @@ export const paginate = async <T>(
   let hasNextPage = true
   let cursor: string | null = null
   let result: any = {}
-  let data: any = {}
+  const data: any = {}
 
   while (hasNextPage) {
     try {
@@ -41,7 +41,7 @@ export const paginate = async <T>(
       if (!response) break
 
       for (const key in response) {
-        if (response.hasOwnProperty(key)) {
+        if (Object.prototype.hasOwnProperty.call(response, key)) {
           result = response[key]
         }
       }
@@ -62,4 +62,3 @@ export const paginate = async <T>(
   }
   return data
 }
-

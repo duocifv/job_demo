@@ -3,6 +3,7 @@ const nextConfig = {
     unoptimized: true,
   },
   output: 'export',
+  reactStrictMode: true,
   // productionBrowserSourceMaps: false,
 }
 

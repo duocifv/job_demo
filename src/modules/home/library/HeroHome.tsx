@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import React from 'react'
 
 const HeroHome = () => {
@@ -27,9 +28,11 @@ const HeroHome = () => {
           </div>
         </div>
         <figure className="w-5/12">
-          <img
+          <Image
             className="hero-photo"
             src="https://img.dormy-hotels.com/resort/hotels/kikuya/facilities/images/img_title.webp"
+            width={500}
+            height={500}
             alt=""
           />
         </figure>
