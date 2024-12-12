@@ -9,7 +9,7 @@ type Item = { key: string; value: string }
 const KeyBox = () => {
   const [items, setItems] = useState([])
   const [refresh, setRefresh] = useState(false)
-  const [edit, setEdit] = useState(false)
+  const [edit, setEdit] = useState(true)
   const [view, setView] = useState<Item | null>(null)
   const pathname = usePathname()
   const segments =

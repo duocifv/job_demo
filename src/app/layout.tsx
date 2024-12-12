@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import '@/global.css'
-import '../modules/shared/stylesheet/shared.css'
+import '../modules/shared/stylesheet/shared.scss'
 import ProviderClient from './ProviderClient'
 import { ReactNode } from 'react'
 import KeyBox from '@/components/KeyBox'
