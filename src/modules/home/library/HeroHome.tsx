@@ -1,43 +1,78 @@
+import { Button } from '@/components/Button'
 import Image from 'next/image'
 import React from 'react'
 
 const HeroHome = () => {
   return (
-    <article>
-      <div className="bg-secondary h-[74vh] flex items-stretch justify-between">
-        <div className="w-7/12">
-          <div className="hero-head">
-            <hgroup>
-              <p className="text-sm text-primary">
-                Lorem ipsum dolor sit, amet consectetur?
-              </p>
-              <h2 className="text-4xl text-dark leading-normal mt-6">
-                Enter the Real
-                <br />
-                Estate Market with
-                <br />
-                Confidence
-              </h2>
-            </hgroup>
-            <p className="text-base leading-normal mt-6">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Id libero
-              optio iure sequi, quis aliquid voluptatibus cupiditate dignissimos
-              excepturi.
-            </p>
-            <button className="share-button mt-6">Lorem ipsum dolor sit</button>
+    <div className="hero">
+      <div className="hero-items">
+        <div className="hero-item">
+          <div className="hero-banner">
+            <Image src="/banner/banner2.jpg" width={540} height={360} alt="" />
+          </div>
+          <div className="hero-caption ">
+            <h3 className="text-xl">The Best Gifts - Only at Sephora</h3>
+            <div className="mb-3 text-sm">
+              Limited-edition picks to delight everyone on your list.
+            </div>
+            <Button
+              copy="XEM NGAY ▸"
+              variant="secondary"
+              className="w-[160px] border-0"
+            />
           </div>
         </div>
-        <figure className="w-5/12">
-          <Image
-            className="hero-photo"
-            src="https://img.dormy-hotels.com/resort/hotels/kikuya/facilities/images/img_title.webp"
-            width={500}
-            height={500}
-            alt=""
-          />
-        </figure>
+        <div className="hero-item">
+          <div className="hero-banner">
+            <Image src="/banner/banner1.jpg" width={540} height={360} alt="" />
+          </div>
+          <div className="hero-caption">
+            <h3 className="text-xl">The Best Gifts - Only at Sephora</h3>
+            <div className="mb-3 text-sm">
+              Limited-edition picks to delight everyone on your list.
+            </div>
+            <Button
+              copy="XEM NGAY ▸"
+              variant="secondary"
+              className="w-[160px] border-0"
+            />
+          </div>
+        </div>
+
+        <div className="hero-item">
+          <div className="hero-banner">
+            <Image src="/banner/banner6.jpg" width={540} height={360} alt="" />
+          </div>
+          <div className="hero-caption">
+            <h3 className="text-xl">The Best Gifts - Only at Sephora</h3>
+            <div className="mb-3 text-sm">
+              Limited-edition picks to delight everyone on your list.
+            </div>
+            <Button
+              copy="XEM NGAY ▸"
+              variant="secondary"
+              className="w-[160px] border-0"
+            />
+          </div>
+        </div>
+        <div className="hero-item">
+          <div className="hero-banner">
+            <Image src="/banner/banner4.jpg" width={540} height={360} alt="" />
+          </div>
+          <div className="hero-caption">
+            <h3 className="text-xl">The Best Gifts - Only at Sephora</h3>
+            <div className="mb-3 text-sm">
+              Limited-edition picks to delight everyone on your list.
+            </div>
+            <Button
+              copy="XEM NGAY ▸"
+              variant="secondary"
+              className="w-[160px] border-0"
+            />
+          </div>
+        </div>
       </div>
-    </article>
+    </div>
   )
 }
 
