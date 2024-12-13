@@ -53,3 +53,19 @@ https://www.bestbuy.com/
 https://www.newegg.com/
 https://www.ebay.com/itm/196790065016?itmmeta=01JEX1M36CDPZ856BFG2XSFR1N&hash=item2dd19a1778%3Ag%3A7gAAAOSwejxnLSbV&_trkparms=%2526rpp_cid%253D64dc0bb01f966d14dd1eeb95&var=496449695960
 https://www.alibaba.com/trade/search?spm=a27aq.cp_322.8325583830.1.32193ba1l96Kl9&categoryId=201152907&SearchText=Sandals&indexArea=product_en&fsb=y&productId=1600982565236
+
+
+
+
+Crimson Red:
+
+Hex Code: #DC143C
+A deep, rich red often used in high-end fashion. It’s less bright than cherry red, making it ideal for elegant and dramatic looks.
+Cherry Red:
+
+Hex Code: #D50032
+A vibrant, intense red often seen in trendy, youthful fashion collections. It’s striking but might feel a bit too bold for some contexts.
+Black:
+
+Hex Code: #000000
+The quintessential neutral color that pairs well with any other color, creating a sharp, high-contrast look when combined with reds.

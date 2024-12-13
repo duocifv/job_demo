@@ -4,6 +4,7 @@ import Information from '../shared/library/Information'
 import './stylesheet/home.scss'
 import ServiceHome from './library/ServiceHome'
 import MainHome from './library/MainHome'
+import Search from '../shared/library/Search'
 
 const Home = () => {
   return (
@@ -12,6 +13,7 @@ const Home = () => {
       <MainHome />
       <ServiceHome />
       <Information />
+      <Search />
     </div>
   )
 }

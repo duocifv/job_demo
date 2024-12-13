@@ -1,10 +1,8 @@
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-  --primary: #d09f53;
+  --primary: #9E1B32;
   --secondary: #fdfaf5;
-  --dark: #34312c;
-  --light: #fdfdfd;
+  --dark: #1f1d1b;
+  --light: #fdfaf5;
 }
 
 body {
@@ -13,3 +11,6 @@ body {
 }
 
 @tailwind base;
+
+/* Dark shades close to black: #010101, #020202, #1f1d1b, etc. Crimson */
+/* 2f2f2f */
