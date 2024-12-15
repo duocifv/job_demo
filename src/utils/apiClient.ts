@@ -1,4 +1,4 @@
-const endpoint = `https://cms.duocnv.top/wp-json/custom-data-json/v1`
+const endpoint = `https://cms.duocnv.top/wp-json/wc/v3/`
 
 type Method = 'GET' | 'POST' | 'PUT' | 'PATCH'
 type Options = object

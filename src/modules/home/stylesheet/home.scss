@@ -4,11 +4,13 @@
 @layer components {
   .hero {
     padding: 8px 4px;
+
     &-banner {
       border-top-left-radius: 4px;
       border-top-right-radius: 4px;
       overflow: hidden;
     }
+
     &-caption {
       @apply bg-dark;
       padding: 24px;
@@ -16,13 +18,50 @@
       border-bottom-left-radius: 4px;
       border-bottom-right-radius: 4px;
     }
+
     &-items {
       display: flex;
     }
+
     &-item {
       min-width: 540px;
       margin: 0 4px;
     }
   }
 
+  .flashsale {
+    @apply bg-light;
+    padding: 40px 0;
+
+    &-container {
+      max-width: 1248px;
+      margin: 0 auto;
+    }
+
+    &-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 20px;
+      @apply text-light bg-primary;
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    &-timer {
+      display: flex;
+    }
+
+    &-products {
+      display: flex;
+      @apply bg-primary;
+      padding: 12px;
+    }
+    &-product {
+      margin: 0 9px;
+      border: 1px solid #000;
+      background-color: #fff;
+      padding: 8px;
+    }
+  }
 }

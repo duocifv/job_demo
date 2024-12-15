@@ -15,3 +15,8 @@ Chocolate Brown: A color that has been steadily gaining popularity, especially i
 
 
 Cherry Red – This vibrant, rich red is being used extensively across various fashion items. It's a striking and eye-catching color that works well for dresses, tailoring, and accessories. A color code commonly used for cherry red is #D50032.
+
+
+
+ck_6e59bddb044cb065653f669d26d31aae9a2d4718
+cs_c73bb0eabb294ec1871c3de3f5e1eb11e33db7ce
