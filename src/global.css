@@ -1,13 +1,15 @@
 :root {
-  --primary: #bd0d30;
-  --secondary: #f8f8f8;
+  --primary: #af2026;
+  --secondary: #fbb144;
+  --tertiary: #cc9f68;
   --dark: #1f1d1b;
-  --light: #fdfaf5;
+  --light: #fffada;
+  --foreground: #f4f4f4;
 }
 
 body {
   color: #333;
-  font-family: 'Arial', Helvetica, sans-serif;
+  font-family: "Inter", Arial, SF Pro Text, Roboto, Helvetica Neue, Helvetica, Tahoma, PingFang SC, Microsoft YaHei;
 }
 
 @tailwind base;

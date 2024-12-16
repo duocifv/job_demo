@@ -23,10 +23,15 @@
         text-underline-offset: 4px;
         letter-spacing: 0.08em;
       }
-
+      &-group {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+      }
       &-sample {
         color: #fff;
         font-weight: normal;
+        float: left;
       }
     }
 
@@ -63,10 +68,25 @@
       left: -12px;
     }
 
+    &-shoes {
+      position: absolute;
+      right: 0;
+      top: -31px;
+      z-index: 9999;
+      height: 120px;
+      img {
+        height: 100%;
+        width: 100%;
+      }
+    }
+
     &-container {
       max-width: 80.25rem;
       margin: 0 auto;
       width: 100%;
+      display: flex;
+      justify-content: space-between;
+      position: relative;
     }
 
 
@@ -192,7 +212,8 @@
         position: relative;
         display: flex;
         justify-content: center;
-        &:last-child > div {
+
+        &:last-child>div {
           border: 0;
         }
       }
@@ -211,7 +232,8 @@
         helvetica,
         arial,
         sans-serif;
-        padding: 8px 0;
+      padding: 8px 0;
+
       &-popover {
         width: 375px;
         background-color: gray;
@@ -227,7 +249,8 @@
         border-right: 0;
       }
 
-      &:hover ~ &-popover, &-popover:hover {
+      &:hover~&-popover,
+      &-popover:hover {
         visibility: visible;
         z-index: 999;
       }
@@ -238,8 +261,84 @@
       padding: 16px;
       background-color: rgb(255, 255, 255);
       @apply text-dark;
-      box-shadow: #1f1d1b 0px 0px 6px;
+      box-shadow: rgba(0, 0, 0, 0.2) 0px 0px 6px;
       border-radius: 6px;
+    }
+  }
+
+  .products {
+    display: flex;
+    justify-content: space-between;
+    overflow: hidden;
+    &-carousel{
+      display: flex;
+      width: 100%;
+      position: relative;
+      &-next {
+        width: 120px;
+        height: 120px;
+        background-color: red;
+        opacity: 0;
+        position: absolute;
+        right: 0;
+        top: 0;
+        z-index: 99;
+      }
+      &-items {
+        position: relative;
+        display: flex;
+        left: 0;
+      }
+    }
+  }
+  .product {
+    background-color: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    padding: 12px;
+    min-width: 280px;
+    flex-shrink: 1;
+    flex-grow: 0;
+    margin-left: 18px;
+    font-family: "Inter", Arial, SF Pro Text, Roboto, Helvetica Neue, Helvetica, Tahoma, PingFang SC, Microsoft YaHei;
+    @apply text-dark;
+
+    &-thumb {
+      border-radius: 12px;
+      overflow: hidden;
+      img {
+        width: 100%;
+      }
+    }
+
+    &-price-first {
+      font-size: .875rem;
+      line-height: 1.3;
+      font-weight: 400;
+      text-decoration: line-through;
+      color: #707070;
+    }
+
+    &-price {
+      font-size: 20px;
+      line-height: 28px;
+      font-weight: 700;
+    }
+
+    &-sale {
+      font-size: 22px;
+      line-height: 30px;
+      font-weight: 700;
+    }
+
+    &-name {
+      margin-top: 12px;
+      font-size: .875rem;
+      line-height: 1.4;
+      min-height: 34px;
+      max-width: 800px;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
   }
 
@@ -408,17 +507,24 @@
     min-width: 5.5em;
 
     &-secondary {
-      @apply bg-light border-dark border-2 text-dark;
+      @apply bg-secondary border-dark border-2 text-dark;
     }
-    &-buy{
+    &-tertiary {
+      @apply bg-tertiary text-dark;
+    }
+    &-light {
+      @apply bg-white text-dark;
+    }
+    &-buy {
       @apply bg-primary;
     }
+
     &-group {
       display: flex;
       justify-content: space-between;
       gap: 12px;
     }
-   
+
   }
 
   .line {

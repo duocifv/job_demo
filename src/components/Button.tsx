@@ -10,13 +10,15 @@ export const ButtonGroup: FC<{
 export const Button: FC<{
   className?: string
   copy?: ReactNode | string
-  variant?: 'secondary' | 'buy'
+  variant?: 'secondary' | 'buy' | 'tertiary' | 'light'
 }> = (p) => {
   return (
     p.copy && (
       <button
         className={classNames(
           'button',
+          p.variant === 'light' && `button-light`,
+          p.variant === 'tertiary' && `button-tertiary`,
           p.variant === 'secondary' && `button-secondary`,
           p.variant === 'buy' && `button-buy`,
           p.className

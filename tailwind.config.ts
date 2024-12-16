@@ -15,6 +15,7 @@ const config: Config = {
         secondary: 'var(--secondary)',
         background: 'var(--background)',
         foreground: 'var(--foreground)',
+        tertiary: 'var(--tertiary)',
         dark: 'var(--dark)',
         light: 'var(--light)',
       },

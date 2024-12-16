@@ -10,7 +10,7 @@ const HeroHome = () => {
           <div className="hero-banner">
             <Image src="/banner/banner2.jpg" width={540} height={360} alt="" />
           </div>
-          <div className="hero-caption ">
+          <div className="hero-caption">
             <h3 className="text-xl">The Best Gifts - Only at Sephora</h3>
             <div className="mb-3 text-sm">
               Limited-edition picks to delight everyone on your list.
@@ -18,7 +18,7 @@ const HeroHome = () => {
             <Button
               copy="XEM NGAY ▸"
               variant="secondary"
-              className="w-[160px] border-0"
+              className="w-[160px]"
             />
           </div>
         </div>
@@ -34,7 +34,7 @@ const HeroHome = () => {
             <Button
               copy="XEM NGAY ▸"
               variant="secondary"
-              className="w-[160px] border-0"
+              className="w-[160px]"
             />
           </div>
         </div>
@@ -51,7 +51,7 @@ const HeroHome = () => {
             <Button
               copy="XEM NGAY ▸"
               variant="secondary"
-              className="w-[160px] border-0"
+              className="w-[160px]"
             />
           </div>
         </div>
@@ -67,7 +67,7 @@ const HeroHome = () => {
             <Button
               copy="XEM NGAY ▸"
               variant="secondary"
-              className="w-[160px] border-0"
+              className="w-[160px]"
             />
           </div>
         </div>
