@@ -38,6 +38,9 @@ const Header = () => {
               <span className="head-text-sample"> bất kể giá trị.</span>
             </div>
           </div>
+          <div className='head-mark'>
+            <span className="head-shoesbg"/>
+          </div>
           <div className="head-shoes">
             <img src="shoes.svg" alt="" width={42} />
           </div>

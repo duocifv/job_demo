@@ -7,45 +7,100 @@ const ProductsCarousel = (p) => {
   const [client, setClient] = useState(0)
   const [items, setItems] = useState(0)
   const [item, setItem] = useState(0)
-
-  useEffect(() => {
+  const updateDimensions = () => {
     if (carousel.current) {
-      const elment = carousel.current
-      console.dir(elment, elment.clientWidth)
-      setClient(elment.clientWidth)
+      const element = carousel.current
+      console.dir(element, element.clientWidth)
+      setClient(element.clientWidth)
     }
+
     if (carouselChild.current) {
       const el = carouselChild.current
       setItems(el.firstElementChild.clientWidth * el.childElementCount)
-      console.dir(carouselChild.current)
+      console.dir(el)
     }
-    //setItems((Math.floor(total * 100) / 100) * 10)
+  }
+
+  useEffect(() => {
+    updateDimensions()
+    window.addEventListener('resize', () => {
+      setItem(0)
+      updateDimensions()
+    })
+    return () => {
+      window.removeEventListener('resize', updateDimensions)
+    }
   }, [])
+
   const handleNext = () => {
     let itemNext = item + client
     const rest = items - itemNext
-    if (rest < 0) {
+    if (client > rest) {
       itemNext = item + rest
-    }
-    console.log('itemNext', itemNext, 'items', items, 'rest', rest)
-    if (rest === 0) {
-      setItem(0)
-      return
     }
     setItem(itemNext)
   }
+
+  const handlePre = () => {
+    let itemPre = item - client
+
+    if (itemPre <= 0) {
+      itemPre = 0
+    }
+
+    setItem(itemPre)
+  }
   return (
-    <div ref={carousel} className="products">
-      <div className="products-carousel">
-        <div
-          className="products-carousel-items"
-          style={{ left: `-${item}px` }}
-          ref={carouselChild}
-        >
-          {p.children}
+    <div className='products-container'>
+      {item > 0 && (
+        <span className="products-carousel-button pre" onClick={handlePre}>
+          <i className="products-carousel-icon">
+            <svg
+              stroke="currentColor"
+              fill="currentColor"
+              strokeWidth="0"
+              viewBox="0 0 24 24"
+              height="32px"
+              width="32px"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path fill="none" d="M0 0h24v24H0V0z"></path>
+              <path d="M15.61 7.41 14.2 6l-6 6 6 6 1.41-1.41L11.03 12l4.58-4.59z"></path>
+            </svg>
+          </i>
+        </span>
+      )}
+       {!(item + client >= items) && (
+        <span className="products-carousel-button next" onClick={handleNext}>
+          <i className="products-carousel-icon">
+            <svg
+              stroke="currentColor"
+              fill="currentColor"
+              strokeWidth="0"
+              viewBox="0 0 24 24"
+              height="32px"
+              width="32px"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path fill="none" d="M0 0h24v24H0V0z"></path>
+              <path d="M10.02 6 8.61 7.41 13.19 12l-4.58 4.59L10.02 18l6-6-6-6z"></path>
+            </svg>
+          </i>
+        </span>
+      )}
+
+      <div ref={carousel} className="products">
+        <div className="products-carousel">
+          <div
+            className="products-carousel-items"
+            style={{ left: `-${item}px` }}
+            ref={carouselChild}
+          >
+            {p.children}
+          </div>
         </div>
-        <button className="products-carousel-next" onClick={handleNext} />
       </div>
+     
     </div>
   )
 }
