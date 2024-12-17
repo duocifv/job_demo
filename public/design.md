@@ -69,3 +69,26 @@ Black:
 
 Hex Code: #000000
 The quintessential neutral color that pairs well with any other color, creating a sharp, high-contrast look when combined with reds.
+
+
+
+
+
+1. Ưu tiên khách hàng yêu thích sự mới mẻ
+Nếu bạn muốn thúc đẩy sự quan tâm đến các sản phẩm mới:
+
+Recent Products (Sản phẩm mới nhất): Đặt đầu tiên để thu hút sự chú ý của khách hàng.
+Featured Products (Sản phẩm nổi bật): Xếp thứ hai để giới thiệu các sản phẩm có chất lượng hoặc đang được quảng bá.
+Best Selling Products (Sản phẩm bán chạy nhất): Xếp cuối cùng để tạo niềm tin vào uy tín của cửa hàng.
+2. Ưu tiên bán hàng và tạo niềm tin
+Nếu bạn muốn nhấn mạnh vào uy tín và thúc đẩy doanh số:
+
+Best Selling Products (Sản phẩm bán chạy nhất): Đặt đầu tiên để tăng sự tin tưởng của khách hàng.
+Featured Products (Sản phẩm nổi bật): Xếp thứ hai để giới thiệu các sản phẩm tiêu biểu.
+Recent Products (Sản phẩm mới nhất): Đặt cuối cùng để kích thích khách hàng khám phá.
+3. Ưu tiên sự cân bằng
+Nếu bạn muốn cân bằng giữa các mục tiêu:
+
+Featured Products (Sản phẩm nổi bật): Đặt đầu tiên để giới thiệu các sản phẩm chiến lược.
+Best Selling Products (Sản phẩm bán chạy nhất): Xếp thứ hai để tạo uy tín.
+Recent Products (Sản phẩm mới nhất): Đặt cuối cùng để tăng cơ hội khách hàng khám phá thêm.

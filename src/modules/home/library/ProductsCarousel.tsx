@@ -51,9 +51,9 @@ const ProductsCarousel = (p) => {
     setItem(itemPre)
   }
   return (
-    <div className='products-container'>
+    <div className="products-container">
       {item > 0 && (
-        <span className="products-carousel-button pre" onClick={handlePre}>
+        <button className="products-carousel-button pre" onClick={handlePre}>
           <i className="products-carousel-icon">
             <svg
               stroke="currentColor"
@@ -68,10 +68,10 @@ const ProductsCarousel = (p) => {
               <path d="M15.61 7.41 14.2 6l-6 6 6 6 1.41-1.41L11.03 12l4.58-4.59z"></path>
             </svg>
           </i>
-        </span>
+        </button>
       )}
-       {!(item + client >= items) && (
-        <span className="products-carousel-button next" onClick={handleNext}>
+      {!(item + client >= items) && (
+        <button className="products-carousel-button next" onClick={handleNext}>
           <i className="products-carousel-icon">
             <svg
               stroke="currentColor"
@@ -86,7 +86,7 @@ const ProductsCarousel = (p) => {
               <path d="M10.02 6 8.61 7.41 13.19 12l-4.58 4.59L10.02 18l6-6-6-6z"></path>
             </svg>
           </i>
-        </span>
+        </button>
       )}
 
       <div ref={carousel} className="products">
@@ -100,7 +100,6 @@ const ProductsCarousel = (p) => {
           </div>
         </div>
       </div>
-     
     </div>
   )
 }

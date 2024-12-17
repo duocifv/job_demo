@@ -1,3 +1,4 @@
+import { Button, ButtonGroup } from '@/components/Button'
 import InnerHTML from '@/components/InnerHTML'
 import { formatPrice } from '@/utils/formatPrice'
 import React from 'react'
@@ -5,7 +6,7 @@ import React from 'react'
 const ProductCard = (p) => {
   return (
     <div className="product" key={p.product?.id}>
-      <div className='product-box'>
+      <div className="product-box">
         <figure className="product-thumb">
           <img src={p.product?.image} alt="" />
         </figure>
@@ -19,8 +20,11 @@ const ProductCard = (p) => {
             className="product-price-first"
             node={formatPrice(p.product?.sale_price)}
           />
-          <span>10%</span>
         </div>
+        <ButtonGroup>
+          <Button copy="Mua ngay" />
+          <Button copy="Thêm giỏ hàng" variant="light" />
+        </ButtonGroup>
       </div>
     </div>
   )

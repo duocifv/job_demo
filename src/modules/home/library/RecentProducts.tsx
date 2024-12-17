@@ -63,11 +63,11 @@ const products = [
 ]
 
 // Component chính hiển thị danh sách sản phẩm
-const BestSellingProducts = () => {
+const RecentProducts = () => {
   return (
     <div className="container mx-auto">
-      <h2 className="text-2xl font-bold text-center mb-6">Bán Chạy Nhất</h2>
-      <button>Xem thêm sản phẩm bán chạy</button>
+      <h2 className="text-2xl font-bold text-center mb-6">Hàng Mới Về</h2>
+      <button>Xem tất cả sản phẩm mới</button>
       <ProductsCarousel>
         {products?.map((product) => (
           <ProductCard key={product.id} product={product} />
@@ -77,4 +77,4 @@ const BestSellingProducts = () => {
   )
 }
 
-export default BestSellingProducts
+export default RecentProducts

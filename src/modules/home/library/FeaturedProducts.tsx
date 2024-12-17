@@ -1,6 +1,7 @@
-import ProductCard from '@/modules/shared/library/ProductCard'
 import React from 'react'
 import ProductsCarousel from './ProductsCarousel'
+import ProductCard from '@/modules/shared/library/ProductCard'
+import Heading from '@/modules/shared/library/Heading'
 
 // Dữ liệu mẫu cho 4 sản phẩm
 const products = [
@@ -62,12 +63,16 @@ const products = [
   },
 ]
 
-// Component chính hiển thị danh sách sản phẩm
-const BestSellingProducts = () => {
+const FeaturedProducts = () => {
   return (
     <div className="container mx-auto">
-      <h2 className="text-2xl font-bold text-center mb-6">Bán Chạy Nhất</h2>
-      <button>Xem thêm sản phẩm bán chạy</button>
+      <Heading />
+      <div>
+        <h2 className="text-2xl font-bold text-center mb-6">
+          Lựa Chọn Hàng Đầu
+        </h2>
+        <button>Khám phá thêm lựa chọn hàng đầu</button>
+      </div>
       <ProductsCarousel>
         {products?.map((product) => (
           <ProductCard key={product.id} product={product} />
@@ -77,4 +82,4 @@ const BestSellingProducts = () => {
   )
 }
 
-export default BestSellingProducts
+export default FeaturedProducts

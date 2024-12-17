@@ -1,9 +1,6 @@
-
-
-
 // Thêm nút "Lên lịch" và trường Flash Sale vào trang chỉnh sửa sản phẩm
 function add_flash_sale_schedule_button() {
-    global $post;
+global $post;
 
     // Thêm nút "Lên lịch"
     echo '<p><button type="button" class="button" id="toggle_flash_sale_schedule">Lên lịch Flash Sale</button></p>';
@@ -52,16 +49,15 @@ function add_flash_sale_schedule_button() {
     ) );
 
     echo '</div>';
+
 }
 add_action( 'woocommerce_product_options_pricing', 'add_flash_sale_schedule_button' );
 
-
-
 function enqueue_flash_sale_script() {
-    // Đảm bảo rằng jQuery được tải
-    wp_enqueue_script('jquery');
-    wp_enqueue_script('jquery-ui-datepicker');
-    wp_enqueue_script('jquery-timepicker', 'https://cdnjs.cloudflare.com/ajax/libs/jquery-timepicker/1.13.1/jquery.timepicker.min.js', array('jquery'), null, true);
+// Đảm bảo rằng jQuery được tải
+wp_enqueue_script('jquery');
+wp_enqueue_script('jquery-ui-datepicker');
+wp_enqueue_script('jquery-timepicker', 'https://cdnjs.cloudflare.com/ajax/libs/jquery-timepicker/1.13.1/jquery.timepicker.min.js', array('jquery'), null, true);
 
     // Tải CSS cho Datepicker và Timepicker
     wp_enqueue_style('jquery-ui-datepicker-css', 'https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css');
@@ -101,19 +97,19 @@ function enqueue_flash_sale_script() {
         });
     </script>
     <?php
+
 }
 add_action('admin_footer', 'enqueue_flash_sale_script');
 
-
 // Lưu thông tin ngày và giờ Flash Sale khi cập nhật sản phẩm
 function save_flash_sale_schedule_fields( $post_id ) {
-    // Kiểm tra và lưu ngày và giờ bắt đầu Flash Sale
-    if ( isset( $_POST['_flash_sale_start_date'] ) ) {
-        update_post_meta( $post_id, '_flash_sale_start_date', sanitize_text_field( $_POST['_flash_sale_start_date'] ) );
-    }
-    if ( isset( $_POST['_flash_sale_start_time'] ) ) {
-        update_post_meta( $post_id, '_flash_sale_start_time', sanitize_text_field( $_POST['_flash_sale_start_time'] ) );
-    }
+// Kiểm tra và lưu ngày và giờ bắt đầu Flash Sale
+if ( isset( $\_POST['_flash_sale_start_date'] ) ) {
+update_post_meta( $post_id, '\_flash_sale_start_date', sanitize_text_field( $\_POST['_flash_sale_start_date'] ) );
+}
+if ( isset( $\_POST['_flash_sale_start_time'] ) ) {
+update_post_meta( $post_id, '\_flash_sale_start_time', sanitize_text_field( $\_POST['_flash_sale_start_time'] ) );
+}
 
     // Kiểm tra và lưu ngày và giờ kết thúc Flash Sale
     if ( isset( $_POST['_flash_sale_end_date'] ) ) {
@@ -122,6 +118,6 @@ function save_flash_sale_schedule_fields( $post_id ) {
     if ( isset( $_POST['_flash_sale_end_time'] ) ) {
         update_post_meta( $post_id, '_flash_sale_end_time', sanitize_text_field( $_POST['_flash_sale_end_time'] ) );
     }
+
 }
 add_action( 'woocommerce_process_product_meta', 'save_flash_sale_schedule_fields' );
-
