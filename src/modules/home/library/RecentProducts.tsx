@@ -79,12 +79,7 @@ const products = [
 const RecentProducts = () => {
   return (
     <div className="container mx-auto">
-<<<<<<< HEAD
       <TitleProduct copy="Hàng Mới Về" href="/view-more" />
-=======
-      <h2 className="text-2xl font-bold text-center mb-6">Hàng Mới Về</h2>
-      <button>Xem tất cả sản phẩm mới</button>
->>>>>>> dd2433d4a9cbb723dfdd41e37889e16a5c398985
       <ProductsCarousel>
         {products?.map((product) => (
           <ProductCard key={product.id} product={product} />
