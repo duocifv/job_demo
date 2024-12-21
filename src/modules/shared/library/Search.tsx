@@ -31,8 +31,36 @@ const Search = () => {
         </span>
       </button>
       {mounted && (
-        <div className={`modal ${on ? 'on' : ''}`}>
-          <div className="search">
+        <div
+          className="modal"
+          style={
+            on
+              ? {
+                  opacity: 1,
+                  visibility: 'visible',
+                  background: 'rgb(0, 0, 0, 0.3)',
+                  zIndex: 9999999999,
+                }
+              : {
+                  opacity: 0,
+                  visibility: 'hidden',
+                  background: 'rgb(0, 0, 0, 0)',
+                  zIndex: -1,
+                }
+          }
+        >
+          <div
+            className="search"
+            style={
+              on
+                ? {
+                    transform: 'scale(1)',
+                  }
+                : {
+                    transform: 'scale(0.95)',
+                  }
+            }
+          >
             <div className="search-title">
               <div>
                 <span className="search-badge">
@@ -44,7 +72,6 @@ const Search = () => {
                   <b>Tìm Dép Nữ</b>
                 </span>
                 <span className="search-badge">
-                  {' '}
                   <input type="checkbox" name="search" /> <b>Tìm thương hiệu</b>
                 </span>
               </div>

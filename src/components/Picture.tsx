@@ -32,7 +32,7 @@ const Picture = ({
       data-nimg="1"
       style={{
         color: 'transparent',
-        width: '100%',
+        maxWidth: '100%',
         height: 'auto',
       }}
     />

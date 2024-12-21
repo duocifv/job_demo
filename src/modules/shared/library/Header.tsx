@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import Search from './Search'
 import dynamic from 'next/dynamic'
+import Picture from '@/components/Picture'
 
 const PopoverAuth = dynamic(() =>
   import('./Popover').then((mod) => mod.PopoverAuth)
@@ -42,7 +43,7 @@ const Header = () => {
             <span className="head-shoesbg" />
           </div>
           <div className="head-shoes">
-            <img src="shoes.svg" alt="" width={42} />
+            <Picture src="/shoes.svg" alt="" width={42} />
           </div>
         </div>
       </div>
@@ -52,7 +53,7 @@ const Header = () => {
             <div className="head-logo">
               <figure>
                 <Image
-                  src="logo.png"
+                  src="/logo.png"
                   width={145}
                   height={68}
                   className="head-symbol"
@@ -107,7 +108,7 @@ const Header = () => {
                   </div>
                   <p className="head-copy">
                     <span className="head-name">Đăng nhập</span>
-                    <span className="head-note">để Mua ngay</span>
+                    <span className="head-note">để nhận mã ưu đãi</span>
                   </p>
                 </div>
                 <div className="head-items-popover">

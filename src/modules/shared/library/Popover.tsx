@@ -6,7 +6,7 @@ export const PopoverAuth = () => {
     <div className="head-popover">
       <ButtonGroup>
         <Button copy="Đăng nhập" />
-        <Button copy="Đăng ký" variant="secondary" />
+        <Button copy="Đăng ký" variant="light" />
       </ButtonGroup>
       <Line />
       <div className="flex items-center">
@@ -131,7 +131,7 @@ export const PopoverStores = () => {
 export const PopoverCart = () => {
   return (
     <div className="head-popover">
-      <Button copy="Xem giỏ hàng & Thanh toán" variant="buy" />
+      <Button copy="Xem giỏ hàng & Thanh toán" variant="primary" />
     </div>
   )
 }

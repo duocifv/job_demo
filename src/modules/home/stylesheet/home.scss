@@ -2,6 +2,17 @@
 @tailwind utilities;
 
 @layer components {
+  .home {
+    &-title {
+      font-size: 18px;
+    }
+    &-container {
+      max-width: 1284px;
+      margin: 42px auto 0;
+      padding: 18px;
+    }
+  }
+
   .hero {
     padding: 8px 4px;
 
@@ -21,6 +32,7 @@
 
     &-items {
       display: flex;
+      overflow: hidden;
     }
 
     &-item {
@@ -36,7 +48,9 @@
     justify-content: space-between;
     &-container {
       border-radius: 3px;
-      overflow-y: scroll;
+      max-width: 1284px;
+      margin: 0 auto;
+      padding: 0 18px;
     }
 
     &-header {
@@ -49,6 +63,7 @@
       height: 82px;
       position: relative;
     }
+
     &-label {
       font-size: 16px;
       display: flex;
@@ -140,9 +155,11 @@
     }
     &-products {
       display: flex;
+      padding: 12px;
+    }
+    &-wrap {
       border: 6px solid transparent;
       @apply bg-foreground border-secondary;
-      padding: 12px;
     }
     &-product {
       margin: 0 9px;

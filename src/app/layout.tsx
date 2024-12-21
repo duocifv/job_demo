@@ -1,11 +1,11 @@
-import type { Metadata } from 'next'
 import '@/global.css'
-import '../modules/shared/stylesheet/shared.scss'
+import type { Metadata } from 'next'
 import ProviderClient from './ProviderClient'
 import { ReactNode } from 'react'
 import Header from '@/modules/shared/library/Header'
 import Wrapper from '@/modules/shared/library/Wrapper'
 import Footer from '@/modules/shared/library/Footer'
+import '../modules/shared/stylesheet/shared.scss'
 
 export const metadata: Metadata = {
   title: 'Create Next App',

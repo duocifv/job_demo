@@ -23,5 +23,88 @@ body {
 
 @tailwind base;
 
+.column-scroll::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+
+.column-scroll::-webkit-scrollbar-track {
+  background: #fff;
+  border-radius: 10px;
+}
+
+.column-scroll::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 10px;
+  border: 3px solid #f1f1f1;
+}
+
+.column-scroll::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+.columns-start {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.columns-center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.columns-end {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.columns-between {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: stretch;
+}
+
+.column-start {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.column-center {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.column-end {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.column-between {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: stretch;
+}
+
+.column-scroll {
+  overflow-y: scroll;
+  overflow-x: hidden;
+  height: 100%;
+  padding: 2px 4px;
+}
+
 /* Dark shades close to black: #010101, #020202, #1f1d1b, etc. Crimson 9E1B32*/
 /* 2f2f2f b7272f*/

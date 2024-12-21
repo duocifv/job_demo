@@ -1,4 +1,4 @@
-import { flashSaleApi, homeApi } from './home.api'
+import { homeApi } from './home.api'
 
 export const homeService = async () => {
   const result = await homeApi()

@@ -1,7 +1,10 @@
 'use client'
-import React, { useEffect, useRef, useState } from 'react'
+import classNames from 'classnames'
+import React, { FC, ReactNode, useEffect, useRef, useState } from 'react'
 
-const ProductsCarousel = (p) => {
+const ProductsCarousel: FC<{ className?: string; children: ReactNode }> = (
+  p
+) => {
   const carousel = useRef(null)
   const carouselChild = useRef(null)
   const [client, setClient] = useState(0)
@@ -51,7 +54,7 @@ const ProductsCarousel = (p) => {
     setItem(itemPre)
   }
   return (
-    <div className="products-container">
+    <div className={classNames('products-container', p.className)}>
       {item > 0 && (
         <button className="products-carousel-button pre" onClick={handlePre}>
           <i className="products-carousel-icon">
@@ -89,7 +92,7 @@ const ProductsCarousel = (p) => {
         </button>
       )}
 
-      <div ref={carousel} className="products">
+      <div ref={carousel} className={classNames('products', p.className)}>
         <div className="products-carousel">
           <div
             className="products-carousel-items"

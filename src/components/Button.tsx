@@ -10,7 +10,9 @@ export const ButtonGroup: FC<{
 export const Button: FC<{
   className?: string
   copy?: ReactNode | string
-  variant?: 'secondary' | 'buy' | 'tertiary' | 'light'
+  size?: 'small' | 'medium' | 'large'
+  variant?: 'secondary' | 'primary' | 'tertiary' | 'light' | 'primary-outline'
+  onClick?: () => void
 }> = (p) => {
   return (
     p.copy && (
@@ -20,9 +22,14 @@ export const Button: FC<{
           p.variant === 'light' && `button-light`,
           p.variant === 'tertiary' && `button-tertiary`,
           p.variant === 'secondary' && `button-secondary`,
-          p.variant === 'buy' && `button-buy`,
+          p.variant === 'primary' && `button-primary`,
+          p.variant === 'primary-outline' && `button-primary-outline`,
+          p.size === 'small' && `button-small`,
+          p.size === 'medium' && `button-medium`,
+          p.size === 'large' && `button-large`,
           p.className
         )}
+        onClick={p.onClick}
       >
         {p.copy}
       </button>

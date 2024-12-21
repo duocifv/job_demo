@@ -1,19 +1,17 @@
 import React from 'react'
 import { flashSaleService } from '../feature/home.service'
-import InnerHTML from '@/components/InnerHTML'
-import { formatPrice } from '@/utils/formatPrice'
+import ProductsCarousel from '../../shared/library/ProductsCarousel'
+import ProductCard from '@/modules/shared/library/ProductCard'
 
 const FlashSale = async () => {
   const products = await flashSaleService()
-
-  console.log('result', products)
   return (
     <div className="flashsale bg-foreground container">
       <div className="flashsale-container">
         <div className="flashsale-header">
           <div className="flashsale-copy">
             <p className="flashsale-note">CHỈ ÁP DỤNG KHI MUA HÀNG TẠI</p>
-            <span className="flashsale-logo">DONYSHOP</span>
+            <span className="flashsale-logo">DONY SHOES</span>
           </div>
           <div className="flashsale-box">
             <div className="flashsale-ship">
@@ -39,25 +37,6 @@ const FlashSale = async () => {
               <p className="flashsale-timer-label">
                 16/12<span>Đang diễn ra</span>
               </p>
-              <div className="flashsale-label">
-                <span className="flashsale-label-text">Kết thúc trong</span>
-                <code className="flashsale-timer-code">
-                  <i className="flashsale-icon">
-                    <svg
-                      stroke="currentColor"
-                      fill="currentColor"
-                      strokeWidth="0"
-                      viewBox="0 0 512 512"
-                      height="24px"
-                      width="24px"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path d="M256 48C141.13 48 48 141.13 48 256s93.13 208 208 208 208-93.13 208-208S370.87 48 256 48zm96 240h-96a16 16 0 0 1-16-16V128a16 16 0 0 1 32 0v128h80a16 16 0 0 1 0 32z"></path>
-                    </svg>
-                  </i>
-                  01:41:17
-                </code>
-              </div>
             </div>
             <div className="flashsale-timer">
               <p className="flashsale-timer-label">
@@ -76,26 +55,39 @@ const FlashSale = async () => {
             </div>
           </div>
         </div>
-        <div className="flashsale-products">
-          {products?.map((product) => (
-            <div className="product" key={product?.id}>
-              <figure className="product-thumb">
-                <img src={product?.image} alt="" />
-              </figure>
-              <div className="product-info">
-                <InnerHTML className="product-name" node={product?.title} />
-                <InnerHTML
-                  className="product-sale"
-                  node={formatPrice(product?.sale_price)}
-                />
-                <InnerHTML
-                  className="product-price-first"
-                  node={formatPrice(product?.sale_price)}
-                />
-                <span>10%</span>
-              </div>
+        <div className="flashsale-wrap">
+          <div className="py-6">
+            <div className="flashsale-label">
+              <span className="flashsale-label-text">Kết thúc trong</span>
+              <code className="flashsale-timer-code">
+                <i className="flashsale-icon">
+                  <svg
+                    stroke="currentColor"
+                    fill="currentColor"
+                    strokeWidth="0"
+                    viewBox="0 0 512 512"
+                    height="24px"
+                    width="24px"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path d="M256 48C141.13 48 48 141.13 48 256s93.13 208 208 208 208-93.13 208-208S370.87 48 256 48zm96 240h-96a16 16 0 0 1-16-16V128a16 16 0 0 1 32 0v128h80a16 16 0 0 1 0 32z"></path>
+                  </svg>
+                </i>
+                01:41:17
+              </code>
             </div>
-          ))}
+          </div>
+          <div className="flashsale-products">
+            <ProductsCarousel>
+              {products?.map((product) => (
+                <ProductCard
+                  key={product.id}
+                  product={product}
+                  className="px-2 min-w-[303px]"
+                />
+              ))}
+            </ProductsCarousel>
+          </div>
         </div>
       </div>
     </div>
