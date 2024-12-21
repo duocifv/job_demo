@@ -58,13 +58,13 @@
         1px 1px 0 #1f1d1b;
       letter-spacing: 0.06em;
       font-weight: 400;
-      font-size: 3.24em;
+      font-size: 2.24em;
       // 3.60em / scale(0.7)
-      transform: scale(0.7);
+      //transform: scale(0.7);
       -webkit-font-smoothing: antialiased;
       backface-visibility: hidden;
       position: relative;
-      left: -12px;
+      left: 12px;
     }
 
     &-mark {
@@ -93,6 +93,7 @@
       top: -31px;
       z-index: 9999;
       height: 120px;
+      width: 93px;
 
       img {
         height: 100%;
