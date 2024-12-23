@@ -7,7 +7,6 @@ const Footer = () => {
   return (
     <div className="footer">
       <div className="footer-container">
-        <Line className="border-dark-6" />
         <div className="footer-items">
           <div className="footer-group">
             <ul className="footer-item">
@@ -90,8 +89,7 @@ const Footer = () => {
               </li>
             </ul>
           </div>
-          <div className="footer-item">
-            <ul className="footer-item">
+            <ul className="footer-item pb-0">
               <li className="footer-item-large">Thông tin liên hệ</li>
               <li>
                 <b>Địa chỉ:</b> 123 Đường ABC, Quận XYZ, TP. HCM
@@ -108,7 +106,6 @@ const Footer = () => {
                 Thứ 2 - Chủ Nhật, 8:00 - 21:00
               </li>
             </ul>
-          </div>
         </div>
         <Line className="border-dark-6" />
         <div className="footer-info">
@@ -169,7 +166,6 @@ const Footer = () => {
           </div>
         </div>
       </div>
-      <Line top={82} />
     </div>
   )
 }

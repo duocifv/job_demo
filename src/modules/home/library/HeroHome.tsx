@@ -6,8 +6,8 @@ import styles from '../stylesheet/hero.module.css'
 
 const HeroHome = () => {
   return (
-    <div className={styles.herosssssssssssssssssssss}>
-      <div className={styles.itemsssssssssssssssssssssssss}>
+    <div className={styles.hero}>
+      <div className={styles.items}>
         <HeroCarousel className="w-full max-w-full min-w-full">
           <div className={styles.item}>
             <div className={styles.banner}>
@@ -40,7 +40,7 @@ const HeroHome = () => {
                 alt=""
               />
             </div>
-            <div className="hero-caption">
+            <div className={styles.caption}>
               <h3 className="text-xl">The Best Gifts - Only at Sephora</h3>
               <div className="mb-3 text-sm">
                 Limited-edition picks to delight everyone on your list.
@@ -61,7 +61,7 @@ const HeroHome = () => {
                 alt=""
               />
             </div>
-            <div className="hero-caption">
+            <div className={styles.caption}>
               <h3 className="text-xl">The Best Gifts - Only at Sephora</h3>
               <div className="mb-3 text-sm">
                 Limited-edition picks to delight everyone on your list.
@@ -82,7 +82,7 @@ const HeroHome = () => {
                 alt=""
               />
             </div>
-            <div className="hero-caption">
+            <div className={styles.caption}>
               <h3 className="text-xl">The Best Gifts - Only at Sephora</h3>
               <div className="mb-3 text-sm">
                 Limited-edition picks to delight everyone on your list.
