@@ -10,6 +10,7 @@ export const ButtonGroup: FC<{
 export const Button: FC<{
   className?: string
   copy?: ReactNode | string
+  children?: ReactNode | string
   size?: 'small' | 'medium' | 'large'
   variant?: 'secondary' | 'primary' | 'tertiary' | 'light' | 'primary-outline'
   onClick?: () => void

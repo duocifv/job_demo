@@ -79,7 +79,7 @@ const products = [
 const FeaturedProducts = () => {
   return (
     <div className="container mx-auto">
-      <TitleProduct copy="Hàng Mới Về" href="/view-more" />
+      <TitleProduct copy="Sản phẩm nổi bật" href="/view-more" />
       <ProductsCarousel>
         {products?.map((product) => (
           <ProductCard key={product.id} product={product} />

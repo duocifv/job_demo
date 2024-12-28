@@ -1,4 +1,5 @@
 'use client'
+import { Button } from '@/components/Button'
 import classNames from 'classnames'
 import React, { FC, ReactNode, useEffect, useRef, useState } from 'react'
 
@@ -10,17 +11,22 @@ const ProductsCarousel: FC<{ className?: string; children: ReactNode }> = (
   const [client, setClient] = useState(0)
   const [items, setItems] = useState(0)
   const [item, setItem] = useState(0)
+  const [maxY, setMaxY] = useState<number>(null)
+  const [more, setMore] = useState<string>(null)
+
   const updateDimensions = () => {
     if (carousel.current) {
       const element = carousel.current
-      console.dir(element, element.clientWidth)
+      console.dir(element, element.clientHeight)
+
       setClient(element.clientWidth)
     }
 
     if (carouselChild.current) {
       const el = carouselChild.current
+      console.log('height', el.clientHeight)
+      setMaxY(el.clientHeight / 2)
       setItems(el.firstElementChild.clientWidth * el.childElementCount)
-      console.dir(el)
     }
   }
 
@@ -54,56 +60,92 @@ const ProductsCarousel: FC<{ className?: string; children: ReactNode }> = (
     setItem(itemPre)
   }
   return (
-    <div className={classNames('products-container', p.className)}>
-      {item > 0 && (
-        <button className="products-carousel-button pre" onClick={handlePre}>
-          <i className="products-carousel-icon">
-            <svg
-              stroke="currentColor"
-              fill="currentColor"
-              strokeWidth="0"
-              viewBox="0 0 24 24"
-              height="32px"
-              width="32px"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path fill="none" d="M0 0h24v24H0V0z"></path>
-              <path d="M15.61 7.41 14.2 6l-6 6 6 6 1.41-1.41L11.03 12l4.58-4.59z"></path>
-            </svg>
-          </i>
-        </button>
-      )}
-      {!(item + client >= items) && (
-        <button className="products-carousel-button next" onClick={handleNext}>
-          <i className="products-carousel-icon">
-            <svg
-              stroke="currentColor"
-              fill="currentColor"
-              strokeWidth="0"
-              viewBox="0 0 24 24"
-              height="32px"
-              width="32px"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path fill="none" d="M0 0h24v24H0V0z"></path>
-              <path d="M10.02 6 8.61 7.41 13.19 12l-4.58 4.59L10.02 18l6-6-6-6z"></path>
-            </svg>
-          </i>
-        </button>
-      )}
-
-      <div ref={carousel} className={classNames('products', p.className)}>
-        <div className="products-carousel">
-          <div
-            className="products-carousel-items"
-            style={{ left: `-${item}px` }}
-            ref={carouselChild}
+    <>
+      <div
+        className={classNames(
+          'products-container product-col-sp',
+          more && '!max-h-full'
+        )}
+      >
+        {item > 0 && (
+          <button
+            className="products-carousel-button pre hidden md:block"
+            onClick={handlePre}
           >
-            {p.children}
+            <i className="products-carousel-icon">
+              <svg
+                stroke="currentColor"
+                fill="currentColor"
+                strokeWidth="0"
+                viewBox="0 0 24 24"
+                height="32px"
+                width="32px"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path fill="none" d="M0 0h24v24H0V0z"></path>
+                <path d="M15.61 7.41 14.2 6l-6 6 6 6 1.41-1.41L11.03 12l4.58-4.59z"></path>
+              </svg>
+            </i>
+          </button>
+        )}
+        {!(item + client >= items) && (
+          <button
+            className="products-carousel-button next hidden md:block"
+            onClick={handleNext}
+          >
+            <i className="products-carousel-icon">
+              <svg
+                stroke="currentColor"
+                fill="currentColor"
+                strokeWidth="0"
+                viewBox="0 0 24 24"
+                height="32px"
+                width="32px"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path fill="none" d="M0 0h24v24H0V0z"></path>
+                <path d="M10.02 6 8.61 7.41 13.19 12l-4.58 4.59L10.02 18l6-6-6-6z"></path>
+              </svg>
+            </i>
+          </button>
+        )}
+
+        <div
+          ref={carousel}
+          className={classNames('products product-col-sp', more && '!max-h-full')}
+          style={{ maxHeight: maxY ? maxY : '50%' }}
+        >
+          <div
+            className="products-carousel"
+            style={{ maxHeight: maxY && maxY * 2 }}
+          >
+            <div
+              className={classNames('products-carousel-items effect')}
+              style={{ left: `-${item}px` }}
+              ref={carouselChild}
+            >
+              {p.children}
+            </div>
           </div>
         </div>
       </div>
-    </div>
+
+      <div className="column-center gap-4 px-6 mt-7">
+        {!more && (
+          <Button
+            variant="light"
+            onClick={() => setMore('100%')}
+            copy="Xem thêm"
+            className="w-1/2"
+          />
+        )}
+        <Button
+          className="w-1/2"
+          onClick={() => setMore('100%')}
+          copy="Xem tất cả"
+        />
+      </div>
+    </>
   )
 }
 

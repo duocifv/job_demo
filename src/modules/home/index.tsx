@@ -9,11 +9,11 @@ import RecentProducts from './library/RecentProducts'
 const Home = () => {
   return (
     <div>
-      {/* <HeroHome />
-      <FlashSale />
+      <HeroHome />
+      {/* <FlashSale /> */}
       <FeaturedProducts />
       <BestSellingProducts />
-      <RecentProducts /> */}
+      <RecentProducts />
     </div>
   )
 }

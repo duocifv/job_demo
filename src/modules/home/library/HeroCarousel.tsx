@@ -8,6 +8,28 @@ const HeroCarousel: FC<{ className?: string; children: ReactNode }> = (p) => {
   const [client, setClient] = useState(0)
   const [items, setItems] = useState(0)
   const [item, setItem] = useState(0)
+  const [startX, setStartX] = useState(0)
+  const [current, setCurrent] = useState(0)
+  const [count, setCount] = useState(0)
+
+  console.log('count current', current, count)
+
+  const handTouchstart = (e) => {
+    const touchStart = e.touches[0].clientX
+    setStartX(touchStart)
+  }
+  const handleTouchEnd = (e) => {
+    if (e.changedTouches && e.changedTouches[0]) {
+      const end = e.changedTouches[0].clientX
+      const diff = end - startX
+      if (diff < 40 && current < count - 1) {
+        setCurrent(current + 1)
+      }
+      if (diff > 40 && current > 0) {
+        setCurrent(current - 1)
+      }
+    }
+  }
   const updateDimensions = () => {
     if (carousel.current) {
       const element = carousel.current
@@ -18,7 +40,7 @@ const HeroCarousel: FC<{ className?: string; children: ReactNode }> = (p) => {
     if (carouselChild.current) {
       const el = carouselChild.current
       setItems(el.firstElementChild.clientWidth * el.childElementCount)
-      console.dir(el)
+      setCount(el.childElementCount)
     }
   }
 
@@ -55,7 +77,7 @@ const HeroCarousel: FC<{ className?: string; children: ReactNode }> = (p) => {
     <div className={classNames('products-container', p.className)}>
       {item > 0 && (
         <button
-          className="products-carousel-button pre !left-5"
+          className="products-carousel-button pre !left-5 hidden md:block"
           onClick={handlePre}
         >
           <i className="products-carousel-icon bg-white text-dark shadow-md hover:bg-secondary">
@@ -76,7 +98,7 @@ const HeroCarousel: FC<{ className?: string; children: ReactNode }> = (p) => {
       )}
       {!(item + client >= items) && (
         <button
-          className="products-carousel-button next !right-5 "
+          className="products-carousel-button next !right-5 hidden md:block"
           onClick={handleNext}
         >
           <i className="products-carousel-icon bg-white text-dark shadow-md hover:bg-secondary">
@@ -99,9 +121,13 @@ const HeroCarousel: FC<{ className?: string; children: ReactNode }> = (p) => {
       <div ref={carousel} className={classNames('products', p.className)}>
         <div className="products-carousel">
           <div
-            className="products-carousel-items"
-            style={{ left: `-${item}px` }}
+            className="products-carousel-items effect"
+            style={{
+              left: `${startX > 0 ? (current < count - 1 ?  -current * 85 + '%': `calc(-${current * 85 - 15 + '%'} - 8px)`) : -item + 'px'}`,
+            }}
             ref={carouselChild}
+            onTouchStart={handTouchstart}
+            onTouchEnd={handleTouchEnd}
           >
             {p.children}
           </div>

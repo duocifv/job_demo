@@ -6,7 +6,6 @@ const FooterItem = (p) => {
   const itemRef = useRef<HTMLUListElement>(null)
   const [on, setOn] = useState(false)
   const [height, setHeight] = useState(null)
-  console.log('on', on)
   useEffect(() => {
     setHeight(itemRef.current.clientHeight)
   }, [])

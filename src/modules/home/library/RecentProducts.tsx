@@ -79,7 +79,7 @@ const products = [
 const RecentProducts = () => {
   return (
     <div className="container mx-auto">
-      <TitleProduct copy="Hàng Mới Về" href="/view-more" />
+      <TitleProduct copy="Sản phẩm mới" href="/view-more" />
       <ProductsCarousel>
         {products?.map((product) => (
           <ProductCard key={product.id} product={product} />
