@@ -2,6 +2,7 @@ import Line from '@/components/Line'
 import Picture from '@/components/Picture'
 import Link from 'next/link'
 import React from 'react'
+import FooterItem from './FooterItem'
 
 const Footer = () => {
   return (
@@ -9,8 +10,7 @@ const Footer = () => {
       <div className="footer-container">
         <div className="footer-items">
           <div className="footer-group">
-            <ul className="footer-item">
-              <li className="footer-item-large">Danh mục</li>
+            <FooterItem label="Danh mục">
               <li>Dép nữ</li>
               <li>Dép nam</li>
               <li>Trẻ em</li>
@@ -19,95 +19,103 @@ const Footer = () => {
               <li>Cao gót</li>
               <li>Giày thể thao</li>
               <li>Hàng cao cấp</li>
-            </ul>
-            <ul className="footer-item">
-              <li className="footer-item-large">Về chúng tôi</li>
+            </FooterItem>
+            <FooterItem label="Về chúng tôi">
               <li>Giới thiệu</li>
               <li>Tin tức</li>
               <li>Chính sách đổi/trả hàng</li>
               <li>Chính sách bảo hành</li>
               <li>Chính sách bảo mật thông tin</li>
               <li>Điều khoản sử dụng</li>
-            </ul>
-            <ul className="footer-item">
-              <li className="footer-item-large">Hỗ trợ khách hàng</li>
+            </FooterItem>
+            <FooterItem label="Hỗ trợ khách hàng">
               <li>Liên hệ</li>
               <li>Hướng dẫn mua hàng</li>
               <li>Hướng dẫn thanh toán</li>
               <li>Câu hỏi thường gặp (FAQs)</li>
-            </ul>
-
-            <ul className="footer-item footer-order">
-              <li className="footer-item-large min-w-full">Thanh toán</li>
-              <li className="footer-order-item">
-                <Picture
-                  width={64}
-                  height={64}
-                  src="/icon/logo1.webp"
-                  alt={''}
-                />
+            </FooterItem>
+            <FooterItem label="Thanh toán" className="footer-order">
+              <li>
+                <div className="footer-order-item">
+                  <Picture
+                    width={64}
+                    height={64}
+                    src="/icon/logo1.webp"
+                    alt={''}
+                  />
+                </div>
               </li>
-              <li className="footer-order-item">
-                <Picture
-                  width={64}
-                  height={64}
-                  src="/icon/logo2.webp"
-                  alt={''}
-                />
+              <li>
+                <div className="footer-order-item">
+                  <Picture
+                    width={64}
+                    height={64}
+                    src="/icon/logo2.webp"
+                    alt={''}
+                  />
+                </div>
               </li>
-              <li className="footer-order-item">
-                <Picture
-                  width={64}
-                  height={64}
-                  src="/icon/logo3.webp"
-                  alt={''}
-                />
+              <li>
+                <div className="footer-order-item">
+                  <Picture
+                    width={64}
+                    height={64}
+                    src="/icon/logo3.webp"
+                    alt={''}
+                  />
+                </div>
               </li>
-              <li className="footer-order-item">
-                <Picture
-                  width={64}
-                  height={64}
-                  src="/icon/logo4.webp"
-                  alt={''}
-                />
+              <li>
+                <div className="footer-order-item">
+                  <Picture
+                    width={64}
+                    height={64}
+                    src="/icon/logo4.webp"
+                    alt={''}
+                  />
+                </div>
               </li>
-              <li className="footer-order-item">
-                <Picture
-                  width={64}
-                  height={64}
-                  src="/icon/logo5.png"
-                  alt={''}
-                />
+              <li>
+                <div className="footer-order-item">
+                  <Picture
+                    width={64}
+                    height={64}
+                    src="/icon/logo5.png"
+                    alt={''}
+                  />
+                </div>
               </li>
-              <li className="footer-order-item">
-                <Picture
-                  width={64}
-                  height={64}
-                  src="/icon/logo7.webp"
-                  alt={''}
-                />
+              <li>
+                <div className="footer-order-item">
+                  <Picture
+                    width={64}
+                    height={64}
+                    src="/icon/logo7.webp"
+                    alt={''}
+                  />
+                </div>
               </li>
-            </ul>
+            </FooterItem>
           </div>
-            <ul className="footer-item pb-0">
-              <li className="footer-item-large">Thông tin liên hệ</li>
-              <li>
-                <b>Địa chỉ:</b> 123 Đường ABC, Quận XYZ, TP. HCM
-              </li>
-              <li>
-                <b>Số điện thoại: </b>0123 456 789
-              </li>
-              <li>
-                <b>Email: </b>support@example.com
-              </li>
-              <li>
-                <b>Thời gian làm việc:</b>
-                <br />
-                Thứ 2 - Chủ Nhật, 8:00 - 21:00
-              </li>
-            </ul>
+          <ul className="footer-item pb-0 mt-4 md:mt-0">
+            <li className="footer-item-large">Thông tin liên hệ</li>
+            <li>
+              <b>Địa chỉ:</b> 123 Đường ABC, Quận XYZ, TP. HCM
+            </li>
+            <li>
+              <b>Số điện thoại: </b>0123 456 789
+            </li>
+            <li>
+              <b>Email: </b>support@example.com
+            </li>
+            <li>
+              <b>Thời gian làm việc:</b>
+              <br />
+              Thứ 2 - Chủ Nhật, 8:00 - 21:00
+            </li>
+          </ul>
         </div>
-        <Line className="border-dark-6" />
+        <Line className="border-gray-600" />
         <div className="footer-info">
           <div className="footer-copyright">
             <span>© 2024 Dony shoes. All rights reserved.</span>
