@@ -14,6 +14,7 @@ export const PostsQuery = gql`
     }
   }
 `
+
 export const postApi = async () => {
   try {
     return await query<any>(PostsQuery)
