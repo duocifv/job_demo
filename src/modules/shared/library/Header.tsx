@@ -19,6 +19,8 @@ const PopoverStores = dynamic(() =>
 const Header = () => {
   return (
     <header className="head">
+      <HeaderTop />
+      <HeadStickyMobile />
       <div className="head-group">
         <div className="head-container">
           <nav className="head-nav">
@@ -35,9 +37,7 @@ const Header = () => {
               </figure>
               <h1 className="head-dony">DONY</h1>
             </div>
-            <HeadStickyMobile>
-              <HeaderTop />
-              <div className="flex w-full p-1 border border-white">
+              <div className="w-full p-1 border border-white hidden md:flex">
                 <div className="flex items-center head-boxs">
                   <button className="head-menu-mobile">
                     <svg
@@ -139,7 +139,6 @@ const Header = () => {
                   </div>
                 </div>
               </div>
-            </HeadStickyMobile>
           </nav>
         </div>
       </div>
