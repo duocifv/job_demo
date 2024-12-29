@@ -2,17 +2,17 @@
 import React, { ReactNode, useEffect, useRef, useState } from 'react'
 
 const HeadStickyMobile = ({ children }: { children: ReactNode }) => {
-  const [isSticky, setIsSticky] = useState(0)
+  const [isSticky, setIsSticky] = useState<number>(0)
   const stickyRef = useRef<HTMLDivElement>(null)
   useEffect(() => {
     const handleScroll = () => {
       if (stickyRef.current) {
         const scrollPosition = window.scrollY
-        if (scrollPosition > 52) {
-          setIsSticky(52)
+        if (scrollPosition > 51) {
+          setIsSticky(51)
         }
-        if (scrollPosition < 53) {
-          setIsSticky(scrollPosition)
+        if (scrollPosition < 52) {
+          setIsSticky(0)
         }
       }
     }
@@ -24,7 +24,7 @@ const HeadStickyMobile = ({ children }: { children: ReactNode }) => {
   }, [])
   return (
     <div
-      className={`head-sticky`}
+      className={`head-sticky effect`}
       style={{ top: `${isSticky ? `-${isSticky}px` : '0'}` }}
       ref={stickyRef}
     >

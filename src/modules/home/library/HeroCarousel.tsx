@@ -9,40 +9,77 @@ const HeroCarousel: FC<{ className?: string; children: ReactNode }> = (p) => {
   const [items, setItems] = useState(0)
   const [item, setItem] = useState(0)
   const [startX, setStartX] = useState(0)
+  const [startY, setStartY] = useState(0);
+  const [isHorizontalSwipe, setIsHorizontalSwipe] = useState(false);
   const [current, setCurrent] = useState(0)
   const [count, setCount] = useState(0)
-
-  console.log('count current', current, count)
+  const [isVerticalSwipe, setIsVerticalSwipe] = useState(false)
 
   const handTouchstart = (e) => {
-    const touchStart = e.touches[0].clientX
-    setStartX(touchStart)
+    //e.stopPropagation()
+    const touchStartX = e.touches[0].clientX;
+    const touchStartY = e.touches[0].clientY;
+    setStartX(touchStartX);
+    setStartY(touchStartY);
+    setIsHorizontalSwipe(false);
+    setIsVerticalSwipe(false)
   }
+  const handTouchmove = (e) => {
+    const touchMoveX = e.touches[0].clientX;
+    const touchMoveY = e.touches[0].clientY;
+
+    const deltaX = touchMoveX - startX;
+    const deltaY = touchMoveY - startY;
+
+    if (Math.abs(deltaX) > Math.abs(deltaY)) {
+      setIsHorizontalSwipe(true);
+      console.log("ngang ngang")
+      //e.stopPropagation()
+    }
+    if (Math.abs(deltaY) > Math.abs(deltaX)) {
+      setIsVerticalSwipe(true) 
+      console.log("dọc dọc")
+    }
+    if (isVerticalSwipe) {
+      e.stopPropagation();
+      
+    }
+  };
   const handleTouchEnd = (e) => {
+    e.stopPropagation()
+    e.preventDefault()
+
     if (e.changedTouches && e.changedTouches[0]) {
-      const end = e.changedTouches[0].clientX
-      const diff = end - startX
-      if (diff < 40 && current < count - 1) {
-        setCurrent(current + 1)
-      }
-      if (diff > 40 && current > 0) {
-        setCurrent(current - 1)
+      const end = e.changedTouches[0].clientX;
+      const diff = end - startX;
+
+      if (Math.abs(diff) > 40 && isHorizontalSwipe) {
+        if (diff < 0 && current < count - 1) {
+          setCurrent(current + 1)
+        }
+        if (diff > 0 && current > 0) {
+          setCurrent(current - 1)
+        }
       }
     }
-  }
+  };
+
   const updateDimensions = () => {
+
     if (carousel.current) {
-      const element = carousel.current
-      console.dir(element, element.clientWidth)
-      setClient(element.clientWidth)
+      const element = carousel.current;
+      console.dir(element, element.clientWidth);
+      setClient(element.clientWidth);
     }
 
     if (carouselChild.current) {
-      const el = carouselChild.current
-      setItems(el.firstElementChild.clientWidth * el.childElementCount)
-      setCount(el.childElementCount)
+      const el = carouselChild.current;
+      setItems(el.firstElementChild.clientWidth * el.childElementCount);
+      setCount(el.childElementCount);
     }
-  }
+  };
+
+
 
   useEffect(() => {
     updateDimensions()
@@ -66,15 +103,17 @@ const HeroCarousel: FC<{ className?: string; children: ReactNode }> = (p) => {
 
   const handlePre = () => {
     let itemPre = item - client
-
     if (itemPre <= 0) {
       itemPre = 0
     }
-
     setItem(itemPre)
   }
+  const handleWheel = (e) => {
+    e.stopPropagation()
+    //e.preventDefault();
+  };
   return (
-    <div className={classNames('products-container', p.className)}>
+    <div className={classNames('products-container sortable-handler', p.className)}>
       {item > 0 && (
         <button
           className="products-carousel-button pre !left-5 hidden md:block"
@@ -123,11 +162,13 @@ const HeroCarousel: FC<{ className?: string; children: ReactNode }> = (p) => {
           <div
             className="products-carousel-items effect"
             style={{
-              left: `${startX > 0 ? (current < count - 1 ?  -current * 85 + '%': `calc(-${current * 85 - 15 + '%'} - 8px)`) : -item + 'px'}`,
+              left: `${startX > 0 ? (current < count - 1 ? -current * 85 + "%" : `calc(-${current * 85 - 15 + "%"} - 8px)`) : -item + "px"}`,
             }}
             ref={carouselChild}
             onTouchStart={handTouchstart}
+            onTouchMove={handTouchmove}
             onTouchEnd={handleTouchEnd}
+            onWheel={handleWheel}
           >
             {p.children}
           </div>

@@ -11,7 +11,6 @@ const ProductsCarousel: FC<{ className?: string; children: ReactNode }> = (
   const [client, setClient] = useState(0)
   const [items, setItems] = useState(0)
   const [item, setItem] = useState(0)
-  const [maxY, setMaxY] = useState<number>(null)
   const [more, setMore] = useState<string>(null)
 
   const updateDimensions = () => {
@@ -24,8 +23,6 @@ const ProductsCarousel: FC<{ className?: string; children: ReactNode }> = (
 
     if (carouselChild.current) {
       const el = carouselChild.current
-      console.log('height', el.clientHeight)
-      setMaxY(el.clientHeight / 2)
       setItems(el.firstElementChild.clientWidth * el.childElementCount)
     }
   }
@@ -112,12 +109,10 @@ const ProductsCarousel: FC<{ className?: string; children: ReactNode }> = (
 
         <div
           ref={carousel}
-          className={classNames('products product-col-sp', more && '!max-h-full')}
-          style={{ maxHeight: maxY ? maxY : '50%' }}
+          className={classNames('products product-col-sp', !more && 'product-more')}
         >
           <div
             className="products-carousel"
-            style={{ maxHeight: maxY && maxY * 2 }}
           >
             <div
               className={classNames('products-carousel-items effect')}
