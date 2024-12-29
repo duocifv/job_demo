@@ -1193,7 +1193,7 @@
 
     &-item {
       font-size: 14px;
-
+      align-content: flex-start;
       &-large {
         font-size: 16px;
       }
@@ -1201,8 +1201,6 @@
       &:first-child {
         border-top: 0;
       }
-
-      align-content: flex-start;
     }
 
     &-copyright {

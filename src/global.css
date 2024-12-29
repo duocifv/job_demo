@@ -114,8 +114,8 @@ body {
 }
 
 .sortable-handler div {
-  /* -ms-touch-action: none;
-  touch-action: none; */
+  -ms-touch-action: none;
+  touch-action: none;
 }
 /* Dark shades close to black: #010101, #020202, #1f1d1b, etc. Crimson 9E1B32*/
 /* 2f2f2f b7272f*/

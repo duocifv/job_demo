@@ -13,16 +13,14 @@ const HeroCarousel: FC<{ className?: string; children: ReactNode }> = (p) => {
   const [isHorizontalSwipe, setIsHorizontalSwipe] = useState(false);
   const [current, setCurrent] = useState(0)
   const [count, setCount] = useState(0)
-  const [isVerticalSwipe, setIsVerticalSwipe] = useState(false)
 
   const handTouchstart = (e) => {
-    //e.stopPropagation()
     const touchStartX = e.touches[0].clientX;
     const touchStartY = e.touches[0].clientY;
     setStartX(touchStartX);
     setStartY(touchStartY);
     setIsHorizontalSwipe(false);
-    setIsVerticalSwipe(false)
+    // setIsVerticalSwipe(false)
   }
   const handTouchmove = (e) => {
     const touchMoveX = e.touches[0].clientX;
@@ -33,17 +31,14 @@ const HeroCarousel: FC<{ className?: string; children: ReactNode }> = (p) => {
 
     if (Math.abs(deltaX) > Math.abs(deltaY)) {
       setIsHorizontalSwipe(true);
-      console.log("ngang ngang")
-      //e.stopPropagation()
     }
-    if (Math.abs(deltaY) > Math.abs(deltaX)) {
-      setIsVerticalSwipe(true) 
-      console.log("dọc dọc")
-    }
-    if (isVerticalSwipe) {
-      e.stopPropagation();
-      
-    }
+    // if (Math.abs(deltaY) > Math.abs(deltaX)) {
+    //   setIsVerticalSwipe(true) 
+    //   console.log("lướt dọc, tạm bỏ")
+    // }
+    // if (isVerticalSwipe) {
+    //   e.stopPropagation();
+    // }
   };
   const handleTouchEnd = (e) => {
     e.stopPropagation()

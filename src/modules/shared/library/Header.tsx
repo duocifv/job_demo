@@ -4,6 +4,7 @@ import HeadStickyMobile from './HeadStickyMobile'
 import Search from './Search'
 import dynamic from 'next/dynamic'
 import HeaderTop from './HeaderTop'
+import Picture from '@/components/Picture'
 
 const PopoverAuth = dynamic(() =>
   import('./Popover').then((mod) => mod.PopoverAuth)
@@ -23,10 +24,11 @@ const Header = () => {
           <nav className="head-nav">
             <div className="head-logo">
               <figure>
-                <Image
+                <Picture
                   src="/logo.png"
                   width={145}
                   height={68}
+                  loading="eager"
                   className="head-symbol"
                   alt="donyshop"
                 />
