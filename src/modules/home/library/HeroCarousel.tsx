@@ -11,6 +11,7 @@ const HeroCarousel: FC<{ className?: string; children: ReactNode }> = (p) => {
   const [startX, setStartX] = useState(0)
   const [startY, setStartY] = useState(0);
   const [isHorizontalSwipe, setIsHorizontalSwipe] = useState(false);
+  const [isVerticalSwipe, setIsVerticalSwipe] = useState(0)
   const [current, setCurrent] = useState(0)
   const [count, setCount] = useState(0)
 
@@ -20,7 +21,6 @@ const HeroCarousel: FC<{ className?: string; children: ReactNode }> = (p) => {
     setStartX(touchStartX);
     setStartY(touchStartY);
     setIsHorizontalSwipe(false);
-    // setIsVerticalSwipe(false)
   }
   const handTouchmove = (e) => {
     const touchMoveX = e.touches[0].clientX;
@@ -31,14 +31,15 @@ const HeroCarousel: FC<{ className?: string; children: ReactNode }> = (p) => {
 
     if (Math.abs(deltaX) > Math.abs(deltaY)) {
       setIsHorizontalSwipe(true);
+      setIsVerticalSwipe(0) 
+      console.log("lướt ngang, tạm bỏ")
     }
-    // if (Math.abs(deltaY) > Math.abs(deltaX)) {
-    //   setIsVerticalSwipe(true) 
-    //   console.log("lướt dọc, tạm bỏ")
-    // }
-    // if (isVerticalSwipe) {
-    //   e.stopPropagation();
-    // }
+    if (Math.abs(deltaY) > Math.abs(deltaX)) {
+      setIsVerticalSwipe(isVerticalSwipe + 1) 
+    }
+    if (isVerticalSwipe) {
+      console.log("lướt dọc, tạm bỏ", isVerticalSwipe)
+    }
   };
   const handleTouchEnd = (e) => {
     e.stopPropagation()
@@ -60,7 +61,6 @@ const HeroCarousel: FC<{ className?: string; children: ReactNode }> = (p) => {
   };
 
   const updateDimensions = () => {
-
     if (carousel.current) {
       const element = carousel.current;
       console.dir(element, element.clientWidth);
@@ -73,8 +73,6 @@ const HeroCarousel: FC<{ className?: string; children: ReactNode }> = (p) => {
       setCount(el.childElementCount);
     }
   };
-
-
 
   useEffect(() => {
     updateDimensions()
@@ -108,7 +106,7 @@ const HeroCarousel: FC<{ className?: string; children: ReactNode }> = (p) => {
     //e.preventDefault();
   };
   return (
-    <div className={classNames('products-container sortable-handler', p.className)}>
+    <div className={classNames('products-container', p.className, isVerticalSwipe < 6 &&"sortable-handler")}>
       {item > 0 && (
         <button
           className="products-carousel-button pre !left-5 hidden md:block"

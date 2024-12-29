@@ -960,7 +960,6 @@
   .wrapper {
     padding-bottom: 72px;
   }
-
   .head {
     margin-top: 0;
 
@@ -1122,6 +1121,8 @@
     .product:nth-child(n+5) {
       opacity: 0;
       height: 0;
+      padding: 0;
+      margin: 0;
     }
   }
 
@@ -1187,12 +1188,12 @@
 
     &-items {
       flex-direction: column;
-      padding-top: 34px;
+      padding-top: 22px;
       padding-bottom: 18px;
     }
 
     &-item {
-      font-size: 14px;
+      @apply text-sm;
       align-content: flex-start;
       &-large {
         font-size: 16px;
@@ -1223,6 +1224,7 @@
       padding-bottom: 0;
       position: relative;
       z-index: 20;
+      @apply text-base;
     }
 
     &-caption {

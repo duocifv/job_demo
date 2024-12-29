@@ -11,7 +11,7 @@ const ProductsCarousel: FC<{ className?: string; children: ReactNode }> = (
   const [client, setClient] = useState(0)
   const [items, setItems] = useState(0)
   const [item, setItem] = useState(0)
-  const [more, setMore] = useState<string>(null)
+  const [more, setMore] = useState<boolean>(false)
 
   const updateDimensions = () => {
     if (carousel.current) {
@@ -115,7 +115,7 @@ const ProductsCarousel: FC<{ className?: string; children: ReactNode }> = (
             className="products-carousel"
           >
             <div
-              className={classNames('products-carousel-items effect')}
+              className={classNames('products-carousel-items')}
               style={{ left: `-${item}px` }}
               ref={carouselChild}
             >
@@ -125,18 +125,17 @@ const ProductsCarousel: FC<{ className?: string; children: ReactNode }> = (
         </div>
       </div>
 
-      <div className="column-center gap-4 px-6 mt-7">
+      <div className="column-center gap-4 px-6 mt-7 md:hidden">
         {!more && (
           <Button
             variant="light"
-            onClick={() => setMore('100%')}
+            onClick={() => setMore(true)}
             copy="Xem thêm"
             className="w-1/2"
           />
         )}
         <Button
           className="w-1/2"
-          onClick={() => setMore('100%')}
           copy="Xem tất cả"
         />
       </div>

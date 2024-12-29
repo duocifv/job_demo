@@ -35,7 +35,7 @@ const Footer = () => {
               <li>Câu hỏi thường gặp (FAQs)</li>
             </FooterItem>
             <FooterItem label="Thanh toán" className="footer-order">
-              <li>
+              <li className="h-20">
                 <div className="footer-order-item">
                   <Picture
                     width={64}
@@ -45,7 +45,7 @@ const Footer = () => {
                   />
                 </div>
               </li>
-              <li>
+              <li className="h-20">
                 <div className="footer-order-item">
                   <Picture
                     width={64}
@@ -75,7 +75,7 @@ const Footer = () => {
                   />
                 </div>
               </li>
-              <li>
+              <li className="h-20">
                 <div className="footer-order-item">
                   <Picture
                     width={64}
@@ -85,7 +85,7 @@ const Footer = () => {
                   />
                 </div>
               </li>
-              <li>
+              <li className="h-20">
                 <div className="footer-order-item">
                   <Picture
                     width={64}

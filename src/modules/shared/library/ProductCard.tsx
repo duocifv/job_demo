@@ -6,7 +6,7 @@ import Link from 'next/link'
 
 const ProductCard = (p) => {
   return (
-    <div className={classNames('product effect', p.className)} key={p.product?.id}>
+    <div className={classNames('product effect-opacity', p.className)} key={p.product?.id}>
       <Link href="/loai/sanpham">
         <div className="product-box columns-between">
           <div className="product-thumb">

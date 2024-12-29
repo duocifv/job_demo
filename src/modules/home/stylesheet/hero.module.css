@@ -33,11 +33,11 @@
 
 @media only screen and (max-width: 768px) {
   .item {
-    min-width: 85%;
+    min-width: 83%;
     margin: 0;
-    margin-left: 8px;
-    width: 85%;
-    
+    margin-left: 2%;
+    width: 83%;
+    box-sizing: border-box;
   }
 
   .hero {

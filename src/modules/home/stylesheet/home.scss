@@ -195,3 +195,14 @@
     padding: 0 42px 0 24px;
   }
 }
+
+
+@media only screen and (max-width: 768px) {
+  .home{
+    &-container {
+      padding: 8px  16px;
+      margin: 54px auto 0;
+    }
+  }
+
+}
