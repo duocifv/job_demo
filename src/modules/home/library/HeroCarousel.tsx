@@ -9,45 +9,45 @@ const HeroCarousel: FC<{ className?: string; children: ReactNode }> = (p) => {
   const [items, setItems] = useState(0)
   const [item, setItem] = useState(0)
   const [startX, setStartX] = useState(0)
-  const [startY, setStartY] = useState(0);
-  const [isHorizontalSwipe, setIsHorizontalSwipe] = useState(false);
+  const [startY, setStartY] = useState(0)
+  const [isHorizontalSwipe, setIsHorizontalSwipe] = useState(false)
   const [isVerticalSwipe, setIsVerticalSwipe] = useState(0)
   const [current, setCurrent] = useState(0)
   const [count, setCount] = useState(0)
 
   const handTouchstart = (e) => {
-    const touchStartX = e.touches[0].clientX;
-    const touchStartY = e.touches[0].clientY;
-    setStartX(touchStartX);
-    setStartY(touchStartY);
-    setIsHorizontalSwipe(false);
+    const touchStartX = e.touches[0].clientX
+    const touchStartY = e.touches[0].clientY
+    setStartX(touchStartX)
+    setStartY(touchStartY)
+    setIsHorizontalSwipe(false)
   }
   const handTouchmove = (e) => {
-    const touchMoveX = e.touches[0].clientX;
-    const touchMoveY = e.touches[0].clientY;
+    const touchMoveX = e.touches[0].clientX
+    const touchMoveY = e.touches[0].clientY
 
-    const deltaX = touchMoveX - startX;
-    const deltaY = touchMoveY - startY;
+    const deltaX = touchMoveX - startX
+    const deltaY = touchMoveY - startY
 
     if (Math.abs(deltaX) > Math.abs(deltaY)) {
-      setIsHorizontalSwipe(true);
-      setIsVerticalSwipe(0) 
-      console.log("lướt ngang, tạm bỏ")
+      setIsHorizontalSwipe(true)
+      setIsVerticalSwipe(0)
+      console.log('lướt ngang, tạm bỏ')
     }
     if (Math.abs(deltaY) > Math.abs(deltaX)) {
-      setIsVerticalSwipe(isVerticalSwipe + 1) 
+      setIsVerticalSwipe(isVerticalSwipe + 1)
     }
     if (isVerticalSwipe) {
-      console.log("lướt dọc, tạm bỏ", isVerticalSwipe)
+      console.log('lướt dọc, tạm bỏ', isVerticalSwipe)
     }
-  };
+  }
   const handleTouchEnd = (e) => {
     e.stopPropagation()
     e.preventDefault()
 
     if (e.changedTouches && e.changedTouches[0]) {
-      const end = e.changedTouches[0].clientX;
-      const diff = end - startX;
+      const end = e.changedTouches[0].clientX
+      const diff = end - startX
 
       if (Math.abs(diff) > 40 && isHorizontalSwipe) {
         if (diff < 0 && current < count - 1) {
@@ -58,21 +58,21 @@ const HeroCarousel: FC<{ className?: string; children: ReactNode }> = (p) => {
         }
       }
     }
-  };
+  }
 
   const updateDimensions = () => {
     if (carousel.current) {
-      const element = carousel.current;
-      console.dir(element, element.clientWidth);
-      setClient(element.clientWidth);
+      const element = carousel.current
+      console.dir(element, element.clientWidth)
+      setClient(element.clientWidth)
     }
 
     if (carouselChild.current) {
-      const el = carouselChild.current;
-      setItems(el.firstElementChild.clientWidth * el.childElementCount);
-      setCount(el.childElementCount);
+      const el = carouselChild.current
+      setItems(el.firstElementChild.clientWidth * el.childElementCount)
+      setCount(el.childElementCount)
     }
-  };
+  }
 
   useEffect(() => {
     updateDimensions()
@@ -104,9 +104,15 @@ const HeroCarousel: FC<{ className?: string; children: ReactNode }> = (p) => {
   const handleWheel = (e) => {
     e.stopPropagation()
     //e.preventDefault();
-  };
+  }
   return (
-    <div className={classNames('products-container', p.className, isVerticalSwipe < 6 &&"sortable-handler")}>
+    <div
+      className={classNames(
+        'products-container',
+        p.className,
+        isVerticalSwipe < 6 && 'sortable-handler'
+      )}
+    >
       {item > 0 && (
         <button
           className="products-carousel-button pre !left-5 hidden md:block"
@@ -155,7 +161,7 @@ const HeroCarousel: FC<{ className?: string; children: ReactNode }> = (p) => {
           <div
             className="products-carousel-items effect"
             style={{
-              left: `${startX > 0 ? (current < count - 1 ? -current * 85 + "%" : `calc(-${current * 85 - 15 + "%"} - 8px)`) : -item + "px"}`,
+              left: `${startX > 0 ? (current < count - 1 ? -current * 85 + '%' : `calc(-${current * 85 - 15 + '%'} - 8px)`) : -item + 'px'}`,
             }}
             ref={carouselChild}
             onTouchStart={handTouchstart}

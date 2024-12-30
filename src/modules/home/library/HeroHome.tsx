@@ -10,7 +10,7 @@ const HeroHome = () => {
       <div className={styles.items}>
         <HeroCarousel className="w-full max-w-full min-w-full">
           <div className={styles.item}>
-            <div className='columns-between h-full'>
+            <div className="columns-between h-full">
               <div>
                 <div className={styles.banner}>
                   <Image
@@ -22,7 +22,9 @@ const HeroHome = () => {
                   />
                 </div>
                 <div className={styles.caption}>
-                  <h3 className="text-base md:text-xl">The Best Gifts - Only at Sephora</h3>
+                  <h3 className="text-base md:text-xl">
+                    The Best Gifts - Only at Sephora
+                  </h3>
                   <div className="mt-1 text-sm">
                     Limited-edition picks to delight everyone on your list.
                   </div>
@@ -49,7 +51,8 @@ const HeroHome = () => {
                 <h3 className="text-xl">The Best Gifts - Only at Sephora</h3>
                 <div className="mb-3 text-sm">
                   Limited-edition picks to delight everyone on your list. <br />
-                </div></div>
+                </div>
+              </div>
               <Button
                 copy="XEM NGAY ▸"
                 variant="secondary"

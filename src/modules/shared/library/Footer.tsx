@@ -11,31 +11,37 @@ const Footer = () => {
         <div className="footer-items">
           <div className="footer-group">
             <FooterItem label="Danh mục">
-              <li>Dép nữ</li>
-              <li>Dép nam</li>
-              <li>Trẻ em</li>
-              <li>Sandal</li>
-              <li>Sneaker</li>
-              <li>Cao gót</li>
-              <li>Giày thể thao</li>
-              <li>Hàng cao cấp</li>
+              <ul className="footer-list">
+                <li>Dép nữ</li>
+                <li>Dép nam</li>
+                <li>Trẻ em</li>
+                <li>Sandal</li>
+                <li>Sneaker</li>
+                <li>Cao gót</li>
+                <li>Giày thể thao</li>
+                <li>Hàng cao cấp</li>
+              </ul>
             </FooterItem>
             <FooterItem label="Về chúng tôi">
-              <li>Giới thiệu</li>
-              <li>Tin tức</li>
-              <li>Chính sách đổi/trả hàng</li>
-              <li>Chính sách bảo hành</li>
-              <li>Chính sách bảo mật thông tin</li>
-              <li>Điều khoản sử dụng</li>
+              <ul className="footer-list">
+                <li>Giới thiệu</li>
+                <li>Tin tức</li>
+                <li>Chính sách đổi/trả hàng</li>
+                <li>Chính sách bảo hành</li>
+                <li>Chính sách bảo mật thông tin</li>
+                <li>Điều khoản sử dụng</li>
+              </ul>
             </FooterItem>
             <FooterItem label="Hỗ trợ khách hàng">
-              <li>Liên hệ</li>
-              <li>Hướng dẫn mua hàng</li>
-              <li>Hướng dẫn thanh toán</li>
-              <li>Câu hỏi thường gặp (FAQs)</li>
+              <ul className="footer-list">
+                <li>Liên hệ</li>
+                <li>Hướng dẫn mua hàng</li>
+                <li>Hướng dẫn thanh toán</li>
+                <li>Câu hỏi thường gặp (FAQs)</li>
+              </ul>
             </FooterItem>
             <FooterItem label="Thanh toán" className="footer-order">
-              <li className="h-20">
+              <div className="column-between gap-4 py-4 flex-wrap">
                 <div className="footer-order-item">
                   <Picture
                     width={64}
@@ -44,8 +50,6 @@ const Footer = () => {
                     alt={''}
                   />
                 </div>
-              </li>
-              <li className="h-20">
                 <div className="footer-order-item">
                   <Picture
                     width={64}
@@ -54,8 +58,6 @@ const Footer = () => {
                     alt={''}
                   />
                 </div>
-              </li>
-              <li>
                 <div className="footer-order-item">
                   <Picture
                     width={64}
@@ -64,8 +66,6 @@ const Footer = () => {
                     alt={''}
                   />
                 </div>
-              </li>
-              <li>
                 <div className="footer-order-item">
                   <Picture
                     width={64}
@@ -74,8 +74,6 @@ const Footer = () => {
                     alt={''}
                   />
                 </div>
-              </li>
-              <li className="h-20">
                 <div className="footer-order-item">
                   <Picture
                     width={64}
@@ -84,8 +82,6 @@ const Footer = () => {
                     alt={''}
                   />
                 </div>
-              </li>
-              <li className="h-20">
                 <div className="footer-order-item">
                   <Picture
                     width={64}
@@ -94,7 +90,7 @@ const Footer = () => {
                     alt={''}
                   />
                 </div>
-              </li>
+              </div>
             </FooterItem>
           </div>
           <ul className="footer-item pb-0 mt-4 md:mt-0">

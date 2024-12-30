@@ -3,7 +3,7 @@ import classNames from 'classnames'
 import React, { useEffect, useRef, useState } from 'react'
 
 const FooterItem = (p) => {
-  const itemRef = useRef<HTMLUListElement>(null)
+  const itemRef = useRef<HTMLDivElement>(null)
   const [on, setOn] = useState(false)
   const [height, setHeight] = useState(null)
   useEffect(() => {
@@ -11,7 +11,7 @@ const FooterItem = (p) => {
   }, [])
   return (
     <div className="footer-group-item">
-      <div className="footer-tab" onClick={() => setOn(!on)}>
+      <button className="footer-tab" onClick={() => setOn(!on)}>
         <div>{p.label}</div>
         <div>
           {on ? (
@@ -40,11 +40,11 @@ const FooterItem = (p) => {
             </svg>
           )}
         </div>
-      </div>
+      </button>
       <div>
-        <ul
+        <div
           className={classNames(
-            'footer-item effect',
+            ' effect',
             p.className,
             !on && height ? '!h-0 -z-10 overflow-hidden' : 'z-10 relative'
           )}
@@ -57,7 +57,7 @@ const FooterItem = (p) => {
           }}
         >
           {p.children}
-        </ul>
+        </div>
       </div>
     </div>
   )

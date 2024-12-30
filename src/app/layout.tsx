@@ -25,7 +25,7 @@ export default function RootLayout({
           {/* <KeyBox /> */}
           <Header />
           <Wrapper>{children}</Wrapper>
-          <StickyFooter/>
+          <StickyFooter />
           <Footer />
         </ProviderClient>
       </body>

@@ -1,7 +1,6 @@
 import React from 'react'
 import Picture from '@/components/Picture'
 
-
 const HeaderTop = () => {
   return (
     <div className="head-box">

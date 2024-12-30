@@ -109,11 +109,12 @@ const ProductsCarousel: FC<{ className?: string; children: ReactNode }> = (
 
         <div
           ref={carousel}
-          className={classNames('products product-col-sp', !more && 'product-more')}
+          className={classNames(
+            'products product-col-sp',
+            !more && 'product-more'
+          )}
         >
-          <div
-            className="products-carousel"
-          >
+          <div className="products-carousel">
             <div
               className={classNames('products-carousel-items')}
               style={{ left: `-${item}px` }}
@@ -134,10 +135,7 @@ const ProductsCarousel: FC<{ className?: string; children: ReactNode }> = (
             className="w-1/2"
           />
         )}
-        <Button
-          className="w-1/2"
-          copy="Xem tất cả"
-        />
+        <Button className="w-1/2" copy="Xem tất cả" />
       </div>
     </>
   )

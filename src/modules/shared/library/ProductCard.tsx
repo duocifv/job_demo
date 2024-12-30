@@ -6,19 +6,22 @@ import Link from 'next/link'
 
 const ProductCard = (p) => {
   return (
-    <div className={classNames('product effect-opacity', p.className)} key={p.product?.id}>
+    <div
+      className={classNames('product effect-opacity', p.className)}
+      key={p.product?.id}
+    >
       <Link href="/loai/sanpham">
         <div className="product-box columns-between">
           <div className="product-thumb">
             <figure className="product-photo">
               <Picture src={p.product?.image} alt="" />
             </figure>
-            <div className='product-thumb-info'>
+            <div className="product-thumb-info">
               <InnerHTML className="product-name" node={p.product?.title} />
-              <Price {...p} className="md:hidden"/>
+              <Price {...p} className="md:hidden" />
             </div>
           </div>
-          <Price {...p} className="hidden md:block"/>
+          <Price {...p} className="hidden md:block" />
         </div>
       </Link>
     </div>
@@ -28,9 +31,9 @@ const ProductCard = (p) => {
 export default ProductCard
 
 const Price = (p) => (
-  <div className={classNames("product-info", p.className)}>
+  <div className={classNames('product-info', p.className)}>
     <InnerHTML
-      className={"product-sale mt-1"}
+      className={'product-sale mt-1'}
       node={formatPrice(p.product?.price)}
     />
     <InnerHTML

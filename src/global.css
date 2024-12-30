@@ -25,7 +25,6 @@ body {
 @tailwind components;
 @tailwind utilities;
 
-
 .column-scroll::-webkit-scrollbar {
   width: 12px;
   height: 12px;
