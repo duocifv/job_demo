@@ -1,5 +1,4 @@
 @tailwind components;
-@tailwind utilities;
 
 @layer components {
   .product {
@@ -63,7 +62,7 @@
         color: white;
         max-width: 1680px;
         margin: 0 auto;
-        padding: 0 3rem;
+        @apply px-0 md:px-12;
         position: relative;
         border-radius: 16px;
         overflow: hidden;
@@ -79,6 +78,7 @@
       &-scarousel {
         position: relative;
         height: 100%;
+        @apply flex !flex-col md:!flex-row;
       }
 
       &-scarousel {
@@ -86,6 +86,7 @@
           height: calc(100% - 68px);
           height: 580px;
           position: relative;
+          @apply flex-col md:flex-row;
         }
 
         &-item {

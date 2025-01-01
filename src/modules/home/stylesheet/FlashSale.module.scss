@@ -241,13 +241,15 @@
       padding-bottom: 32px;
     }
     &Timer {
-      font-size: 14px;
+      font-size: 12px;
       height: auto;
       padding: 4px 8px;
       border-right-width: 1px;
 
       &Code {
         padding: 6px 4px 6px 6px;
+        font-size: 14px;
+        letter-spacing: -1px;
       }
 
       &Label {

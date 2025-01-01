@@ -9,7 +9,7 @@ const ModalShop = dynamic(() => import('./ModalShop'), {
 const StickyFooter = () => {
   const [isModal, setIsModal] = useState<boolean>(false)
   return (
-    <>
+    <div className="md:hidden">
       <ModalShop isModal={isModal} setIsModal={setIsModal} />
       <div className="fixed border-t z-50 bottom-0 w-full bg-white shadow-lg text-[12px]">
         <nav className="flex justify-around items-center p-1 pt-2">
@@ -73,7 +73,7 @@ const StickyFooter = () => {
           </button>
         </nav>
       </div>
-    </>
+    </div>
   )
 }
 

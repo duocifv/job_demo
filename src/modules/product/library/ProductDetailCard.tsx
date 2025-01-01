@@ -28,9 +28,9 @@ const ProductDetailCard = () => {
       <div className="product">
         <div className="product-detail-container" id="modalBox">
           <div className="product-detail-scarousel column-between">
-            <div className="max-w-[68%]">
-              <div className="product-detail-scarousel-items column-start">
-                <div className="columns-start">
+            <div className="md:max-w-[68%]">
+              <div className="product-detail-scarousel-items column-start !flex-col-reverse md:flex-row">
+                <div className="columns-start !flex-row">
                   <div className="product-detail-scarousel-item">
                     <Picture
                       src="https://product.hstatic.net/200000657377/product/6_52bd5cc24e2d48128bd3186d98794757_master.jpg"
