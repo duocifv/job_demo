@@ -34,7 +34,7 @@ const FlashTime = () => {
 
   return (
     <div className="column-center">
-      <span className={styles.flashsaleTimerCode}>{formatTime(hours)}</span>:
+      <code className={styles.flashsaleTimerCode}>{formatTime(hours)}</code>:
       <code className={styles.flashsaleTimerCode}>{formatTime(minutes)}</code>:
       <code className={styles.flashsaleTimerCode}>{formatTime(seconds)}</code>
     </div>

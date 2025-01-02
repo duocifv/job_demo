@@ -6,7 +6,7 @@ interface ModalProps {
   onClose: () => void
   title: string
   children: ReactNode
-  style: any
+  style?: any
   className?: string
 }
 

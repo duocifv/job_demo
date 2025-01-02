@@ -6,7 +6,6 @@ import Header from '@/modules/shared/library/Header'
 import Wrapper from '@/modules/shared/library/Wrapper'
 import Footer from '@/modules/shared/library/Footer'
 import '../modules/shared/stylesheet/shared.scss'
-import StickyFooter from '@/modules/shared/library/StickyFooter'
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -25,7 +24,6 @@ export default function RootLayout({
           {/* <KeyBox /> */}
           <Header />
           <Wrapper>{children}</Wrapper>
-          <StickyFooter />
           <Footer />
         </ProviderClient>
       </body>

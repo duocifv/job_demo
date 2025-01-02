@@ -78,7 +78,7 @@ const products = [
 // Component chính hiển thị danh sách sản phẩm
 const RecentProducts = () => {
   return (
-    <div className="container mx-auto">
+    <div className="md:max-w-[946px] lg:max-w-full md:pr-4 mx-auto">
       <TitleProduct copy="Sản phẩm mới" href="/view-more" />
       <ProductsCarousel>
         {products?.map((product) => (

@@ -7,7 +7,10 @@ import Link from 'next/link'
 const ProductCard = (p) => {
   return (
     <div
-      className={classNames('product effect-opacity', p.className)}
+      className={classNames(
+        'product md:px-2 md:min-w-[28.74%] lg:px-[18px] lg:min-w-[321px] effect-opacity',
+        p.className
+      )}
       key={p.product?.id}
     >
       <Link href="/loai/sanpham">

@@ -3,6 +3,11 @@ import Picture from '@/components/Picture'
 import Link from 'next/link'
 import React from 'react'
 import FooterItem from './FooterItem'
+import FacebookSvg from '@/components/icons/FacebookSvg'
+import InstagramSvg from '@/components/icons/InstagramSvg'
+import PinterestSvg from '@/components/icons/PinterestSvg'
+import TiktokSvg from '@/components/icons/TiktokSvg'
+import YoutubeSvg from '@/components/icons/YoutubeSvg'
 
 const Footer = () => {
   return (
@@ -41,7 +46,7 @@ const Footer = () => {
               </ul>
             </FooterItem>
             <FooterItem label="Thanh toán" className="footer-order">
-              <div className="column-between gap-4 py-4 flex-wrap">
+              <div className="flex justify-start align-top md:justify-between gap-4 md:gap-0 py-4 flex-wrap">
                 <div className="footer-order-item">
                   <Picture
                     width={64}
@@ -150,22 +155,19 @@ const Footer = () => {
           </div>
           <div className="footer-marketing">
             <Link href="/2">
-              <Picture src="icon/facebook.svg" alt="" width={36} height={36} />
+              <FacebookSvg size={48} />
             </Link>
             <Link href="/2">
-              <Picture src="icon/instagram.svg" alt="" width={36} height={36} />
+              <InstagramSvg size={48} />
             </Link>
             <Link href="/2">
-              <Picture src="icon/pinterest.svg" alt="" width={36} height={36} />
+              <PinterestSvg size={48} />
             </Link>
             <Link href="/2">
-              <Picture src="icon/tiktok.svg" alt="" width={36} height={36} />
+              <TiktokSvg size={48} />
             </Link>
             <Link href="/2">
-              <Picture src="icon/x.svg" alt="" width={36} height={36} />
-            </Link>
-            <Link href="/2">
-              <Picture src="icon/youtube.svg" alt="" width={36} height={36} />
+              <YoutubeSvg size={48} />
             </Link>
           </div>
         </div>

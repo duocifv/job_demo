@@ -78,7 +78,7 @@ const products = [
 
 const FeaturedProducts = () => {
   return (
-    <div className="container mx-auto">
+    <div className="md:max-w-[946px] lg:max-w-full md:pr-4 mx-auto">
       <TitleProduct copy="Sản phẩm nổi bật" href="/view-more" />
       <ProductsCarousel>
         {products?.map((product) => (

@@ -12,7 +12,7 @@ const product = {
 
 const Breadcrumb = () => {
   return (
-    <div className="breadcrumb">
+    <div className="breadcrumb hidden md:block">
       <nav aria-label="Breadcrumb">
         <ol className="mx-auto flex items-center px-12">
           {product.breadcrumbs.map((breadcrumb) => (

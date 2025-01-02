@@ -62,7 +62,7 @@
         color: white;
         max-width: 1680px;
         margin: 0 auto;
-        @apply px-0 md:px-12;
+        @apply px-0 lg:px-12;
         position: relative;
         border-radius: 16px;
         overflow: hidden;
@@ -221,6 +221,58 @@
             }
           }
         }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .product {
+    min-width: 100%;
+    &-detail {
+      width: 100%;
+      padding-left: 0;
+      &-info {
+        padding: 0 8px;
+      }
+      &-name {
+        font-size: 16px;
+        line-height: 1.4;
+        margin-top: 10px;
+      }
+      &-price {
+        font-size: 19px;
+      }
+      &-container {
+        padding-top: 0;
+        border-radius: 0;
+      }
+      &-scarousel {
+        flex-direction: col-reverse !important;
+        &-thumb {
+          border-radius: 0;
+          border: 0;
+          width: 100%;
+          img {
+            width: 100%;
+          }
+        }
+      }
+      &-scarousel-item {
+        border: 1px solid #000;
+        min-width: 64px;
+        min-height: auto;
+        margin: 5px 3px 5px;
+        border-radius: 4px;
+        height: auto;
+      }
+      &-scarousel-items {
+        height: auto;
+      }
+      &-scarousel-box {
+        width: 99%;
+        overflow-y: hidden;
+        overflow-x: scroll;
       }
     }
   }

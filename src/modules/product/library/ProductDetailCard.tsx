@@ -27,10 +27,10 @@ const ProductDetailCard = () => {
     <>
       <div className="product">
         <div className="product-detail-container" id="modalBox">
-          <div className="product-detail-scarousel column-between">
-            <div className="md:max-w-[68%]">
-              <div className="product-detail-scarousel-items column-start !flex-col-reverse md:flex-row">
-                <div className="columns-start !flex-row">
+          <div className="product-detail-scarousel column-between block">
+            <div className="w-full md:w-8/12 md:float-left">
+              <div className="product-detail-scarousel-items column-start !flex-col-reverse md:!flex-row">
+                <div className="columns-start !flex-row md:!flex-col product-detail-scarousel-box">
                   <div className="product-detail-scarousel-item">
                     <Picture
                       src="https://product.hstatic.net/200000657377/product/6_52bd5cc24e2d48128bd3186d98794757_master.jpg"
@@ -77,10 +77,9 @@ const ProductDetailCard = () => {
                   />
                 </div>
               </div>
-              <ProductSimilaritems />
             </div>
-            <div className="product-detail">
-              <div className="columns-between column-scroll">
+            <div className="product-detail w-full md:w-4/12 md:float-right">
+              <div className="columns-between column-scroll-del">
                 <div className="product-detail-info">
                   <div className="product-detail-name">
                     Giày Thể Thao Adidas Spezial - Cổ Điển, Tinh Tế | Dony Shop
@@ -115,7 +114,7 @@ const ProductDetailCard = () => {
                   />
                 </div>
               </div>
-              <dl className="mt-16 ">
+              <dl className="mt-8 text-sm md:text-base md:mt-16 px-2">
                 {features.map((feature) => (
                   <div
                     key={feature.name}
@@ -130,6 +129,9 @@ const ProductDetailCard = () => {
                   </div>
                 ))}
               </dl>
+            </div>
+            <div className=" w-full md:w-8/12 md:float-left">
+              <ProductSimilaritems />
             </div>
           </div>
         </div>

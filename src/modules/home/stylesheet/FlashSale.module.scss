@@ -9,6 +9,7 @@
     max-width: 1284px;
     margin: 0 auto;
     padding: 0 18px;
+    width: 100%;
   }
 
   &Header {
@@ -46,6 +47,7 @@
       justify-items: center;
       align-items: center;
       font-size: 16px;
+      z-index: 10;
       font-weight: 400;
     }
   }
@@ -95,7 +97,7 @@
     &Code {
       @apply text-dark bg-light border-2 border-secondary;
       font-weight: bold;
-      letter-spacing: 4px;
+      letter-spacing: 2px;
       text-align: center;
       margin: 0 6px;
       padding: 6px 6px 6px 9px;
@@ -248,8 +250,7 @@
 
       &Code {
         padding: 6px 4px 6px 6px;
-        font-size: 14px;
-        letter-spacing: -1px;
+        font-size: 16px;
       }
 
       &Label {

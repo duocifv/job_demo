@@ -32,7 +32,7 @@ const HeadStickyMobile = () => {
   const ModalComponent = openModal ? Popovers[openModal] : null
 
   return (
-    <div className="relative nav-sticky">
+    <div className="nav-sticky">
       <div className="relative z-20 h-12 p-2 column-center overflow-hidden md:hidden bg-primary">
         <Search />
         {['stores', 'auth', 'cart'].map((modal) => {

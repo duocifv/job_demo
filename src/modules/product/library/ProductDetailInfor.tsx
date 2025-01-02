@@ -1,15 +1,31 @@
+import { Button } from '@/components/Button'
+import classNames from 'classnames'
+import { useState } from 'react'
+
 export default function ProductDetailInfor() {
+  const [more, setMore] = useState<boolean>(true)
   return (
-    <div className="overflow-hidden bg-foreground py-24 sm:py-32 ">
-      <div className="mx-auto max-w-7xl lg:px-8 bg-white rounded-lg border py-10 px-9">
-        <div className="mx-auto">
+    <div
+      className={
+        'overflow-hidden bg-foreground pt-8 pb-0 md:py-24 sm:py-32 content-wp'
+      }
+    >
+      <div className="mx-auto max-w-7xl lg:px-8 bg-white md:rounded-lg border py-5 md:py-10 px-2 md:px-9">
+        <div
+          className={classNames(
+            'mx-auto overflow-hidden',
+            more ? 'max-h-56' : 'max-h-full'
+          )}
+        >
           <div className="lg:pr-8 lg:pt-4 min-w-full">
-            <div className="text-sm ">
-              <h2 className="text-base/7 font-semibold text-gray-400">Mô tả</h2>
-              <p className="mt-2 text-2xl font-semibold tracking-tight text-gray-900">
+            <div className="text-sm">
+              <h2 className="text-sm md:text-base font-semibold text-gray-400">
+                Mô tả
+              </h2>
+              <p className="mt-2 text-base md:text-2xl font-semibold tracking-tight text-gray-900">
                 Giày Thể Thao Adidas Spezial - Cổ Điển, Tinh Tế | Dony Shop
               </p>
-              <p className="mt-6 text-base text-gray-600">
+              <p className="mt-6 text-sm md:text-base leading-normal text-gray-600">
                 Giày thể thao Adidas Spezial mang đậm phong cách cổ điển, với
                 thiết kế tối giản và các chi tiết tinh tế. Được lấy cảm hứng từ
                 những mẫu giày bóng đá cổ điển của Adidas, đôi giày này sở hữu
@@ -43,11 +59,14 @@ export default function ProductDetailInfor() {
           <img
             alt="Product screenshot"
             src="https://product.hstatic.net/200000657377/product/6_52bd5cc24e2d48128bd3186d98794757_master.jpg"
-            width={2432}
-            height={1442}
-            className="w-[600px] max-w-none rounded-xl shadow-xl ring-1 ring-gray-400/10 mt-9"
           />
         </div>
+        <Button
+          onClick={() => setMore(!more)}
+          copy={more ? 'Xem thêm' : 'Thu gọn'}
+          variant="light"
+          className="w-36 mx-auto mt-4"
+        />
       </div>
     </div>
   )

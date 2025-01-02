@@ -5,6 +5,7 @@ import FlashSale from './library/FlashSale'
 import BestSellingProducts from './library/BestSellingProducts'
 import FeaturedProducts from './library/FeaturedProducts'
 import RecentProducts from './library/RecentProducts'
+import StickyFooter from '../shared/library/StickyFooter'
 
 const Home = () => {
   return (
@@ -14,6 +15,7 @@ const Home = () => {
       <FeaturedProducts />
       <BestSellingProducts />
       <RecentProducts />
+      <StickyFooter />
     </div>
   )
 }
