@@ -3,6 +3,7 @@ import ProductsCarousel from '../../shared/library/ProductsCarousel'
 import ProductCard from '@/modules/shared/library/ProductCard'
 import styles from '../stylesheet/FlashSale.module.scss'
 import FlashTime from './FlashTime'
+import classNames from 'classnames'
 
 const FlashSale = async () => {
   const products = await flashSaleService()
@@ -46,7 +47,10 @@ const FlashSale = async () => {
                 <ProductCard
                   key={product.id}
                   product={product}
-                  className="px-2 min-w-[303px]"
+                  className={classNames(
+                    styles.flashsaleCard,
+                    'px-2 min-w-[303px]'
+                  )}
                 />
               ))}
             </ProductsCarousel>

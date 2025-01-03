@@ -29,8 +29,8 @@ const ProductDetailCard = () => {
         <div className="product-detail-container" id="modalBox">
           <div className="product-detail-scarousel column-between block">
             <div className="w-full md:w-8/12 md:float-left">
-              <div className="product-detail-scarousel-items column-start !flex-col-reverse md:!flex-row">
-                <div className="columns-start !flex-row md:!flex-col product-detail-scarousel-box">
+              <div className="product-detail-scarousel-items column-start !flex-col-reverse md:!flex-row md:items-start">
+                <div className="columns-start !flex-row h-full md:!flex-col product-detail-scarousel-box">
                   <div className="product-detail-scarousel-item">
                     <Picture
                       src="https://product.hstatic.net/200000657377/product/6_52bd5cc24e2d48128bd3186d98794757_master.jpg"
@@ -94,24 +94,26 @@ const ProductDetailCard = () => {
                   </div>
 
                   <ProductDetailSelect />
-                  <div className="product-detail-description">
+                  {/* <div className="product-detail-description">
                     ※ The product does not include restrooms, please take care
                     of your needs before boarding.
+                  </div> */}
+                  <div className="hidden md:block">
+                    <Button
+                      size="medium"
+                      variant="primary"
+                      copy="Mua ngay"
+                      className="mt-4"
+                      onClick={() => setOpenCheckout(true)}
+                    />
+                    <Button
+                      size="medium"
+                      variant="primary-outline"
+                      copy="Thêm vào giỏ hàng"
+                      className="mt-4"
+                      onClick={() => setOpenCart(true)}
+                    />
                   </div>
-                  <Button
-                    size="medium"
-                    variant="primary"
-                    copy="Mua ngay"
-                    className="mt-4"
-                    onClick={() => setOpenCheckout(true)}
-                  />
-                  <Button
-                    size="medium"
-                    variant="primary-outline"
-                    copy="Thêm vào giỏ hàng"
-                    className="mt-4"
-                    onClick={() => setOpenCart(true)}
-                  />
                 </div>
               </div>
               <dl className="mt-8 text-sm md:text-base md:mt-16 px-2">

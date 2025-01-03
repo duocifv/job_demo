@@ -30,8 +30,8 @@ const StickyFooter = () => {
   return (
     <div className="md:hidden">
       <div className="fixed border-t z-50 bottom-0 w-full bg-white shadow-lg text-[12px]">
-        <nav className="flex justify-around items-center p-1 pt-2">
-          <GoBackHome className="flex flex-col items-center text-gray-600 hover:text-blue-500">
+        <nav className="flex justify-around items-center">
+          <GoBackHome className="flex pt-2 pb-1 min-w-16 flex-col items-center text-gray-600 hover:text-blue-500">
             <svg
               viewBox="0 0 24 24"
               className="w-4 h-4 mb-1"
@@ -44,7 +44,7 @@ const StickyFooter = () => {
 
           <button
             onClick={() => handleOpen('shop')}
-            className="flex flex-col items-center text-gray-600 hover:text-blue-500"
+            className="flex pt-2 pb-1 min-w-16 flex-col items-center text-gray-600 hover:text-blue-500"
           >
             <svg
               viewBox="0 0 24 24"
@@ -58,22 +58,29 @@ const StickyFooter = () => {
           </button>
 
           <button
-            className="flex flex-col items-center text-gray-600 hover:text-blue-500"
+            className="flex pt-2 pb-1 min-w-16 flex-col items-center text-gray-600 hover:text-blue-500"
             onClick={() => handleOpen('message')}
           >
             <MessageSvg size={20} />
             <span>Nhắn tin</span>
           </button>
           <button
-            className="flex flex-col items-center text-gray-600 hover:text-blue-500"
+            className="flex pt-2 pb-1 min-w-16 flex-col items-center text-gray-600 hover:text-blue-500"
             onClick={() => handleOpen('info')}
           >
             <PhoneSvg size={20} />
-            <span>Thông tin</span>
+            <span>Liên hệ</span>
           </button>
         </nav>
       </div>
       <div
+        role="button"
+        onClick={() => handleClose()}
+        onTouchStart={() => handleClose()}
+        onKeyDown={(e) => {
+          if (e.key === 'Enter' || e.key === ' ') handleClose()
+        }}
+        tabIndex={0}
         className={classNames(
           'border-2 fixed top-0 w-full min-h-full ',
           isClose ? 'effect-close z-[-1]' : 'effect-open z-40'

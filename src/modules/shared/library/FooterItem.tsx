@@ -61,7 +61,8 @@ const FooterItem = (p) => {
           </div>
         </div>
       </div>
-      <div className="footer-group-item hidden md:flex">
+      <div className="footer-group-item hidden md:block">
+        <div>{p.label}</div>
         <div className={classNames(p.className)}>{p.children}</div>
       </div>
     </>

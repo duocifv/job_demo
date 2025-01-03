@@ -19,9 +19,7 @@ const HeadStickyMobile = () => {
 
   const handleOpen = (modal) => {
     if (openModal === modal) {
-      // Kích hoạt hiệu ứng đóng
       setAnimation(null)
-      // Đợi animation kết thúc rồi đóng modal
       setTimeout(() => setOpenModal(null), 200)
     } else {
       setAnimation('effect-in')
@@ -63,6 +61,7 @@ const HeadStickyMobile = () => {
           {openModal === modal && (
             <div
               role="button"
+              onTouchStart={() => handleOpen(modal)}
               onClick={() => handleOpen(modal)}
               onKeyDown={(e) => {
                 if (e.key === 'Enter' || e.key === ' ') handleOpen(modal)

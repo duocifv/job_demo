@@ -17,10 +17,9 @@ const GoBackHome: FC<{
   }, [])
 
   const handleBackOrHome = () => {
+    router.push('/')
     if (isFromHome) {
-      router.back()
-    } else {
-      router.push('/')
+      //router.back()
     }
   }
 

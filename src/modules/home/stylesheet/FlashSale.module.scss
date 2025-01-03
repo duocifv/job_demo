@@ -180,9 +180,21 @@
   .flashsale {
     padding: 0;
     margin-top: 50px;
+
+    &Card {
+      padding: 0 !important;
+      :global(.product-box) {
+        border-radius: 0;
+      }
+    }
+
     &Header {
       flex-direction: column;
       height: auto;
+    }
+
+    &Product {
+      border: 1px solid #000;
     }
 
     &Container {
@@ -191,7 +203,8 @@
 
     &Products {
       flex-direction: column;
-      padding: 10px 0 0 0;
+      padding: 0;
+      margin-top: 0;
     }
 
     &Copy {
@@ -231,17 +244,21 @@
         top: -2px;
       }
     }
+
     &Container {
       padding: 0 8px;
     }
+
     &Icon {
       bottom: 1px;
     }
+
     &Wrap {
       border-width: 2px;
       border-top: 0;
       padding-bottom: 32px;
     }
+
     &Timer {
       font-size: 12px;
       height: auto;
@@ -249,8 +266,11 @@
       border-right-width: 1px;
 
       &Code {
-        padding: 6px 4px 6px 6px;
-        font-size: 16px;
+        padding: 5px 7px 5px 6px;
+        font-size: 18px;
+        font-family: serif;
+        font-weight: 700;
+        letter-spacing: 1px;
       }
 
       &Label {

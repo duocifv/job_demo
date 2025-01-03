@@ -31,8 +31,8 @@ const ProductStickyFooter = () => {
   return (
     <div className="md:hidden">
       <div className="fixed border-t z-50 bottom-0 w-full bg-white shadow-lg text-[12px]">
-        <nav className="flex justify-around items-center p-1 pt-2">
-          <GoBackHome className="flex flex-col items-center text-gray-600 hover:text-blue-500">
+        <nav className="flex justify-around items-center">
+          <GoBackHome className="flex min-w-10 pt-2 pb-1 flex-col items-center text-gray-600 hover:text-blue-500">
             <svg
               viewBox="0 0 24 24"
               className="w-4 h-4 mb-1"
@@ -45,7 +45,7 @@ const ProductStickyFooter = () => {
 
           <button
             onClick={() => handleOpen('shop')}
-            className="flex flex-col items-center text-gray-600 hover:text-blue-500"
+            className="flex min-w-10 pt-2 pb-1 flex-col items-center text-gray-600 hover:text-blue-500"
           >
             <svg
               viewBox="0 0 24 24"
@@ -59,7 +59,7 @@ const ProductStickyFooter = () => {
           </button>
 
           <button
-            className="flex flex-col items-center text-gray-600 hover:text-blue-500"
+            className="flex pt-2 pb-1 min-w-10 flex-col items-center text-gray-600 hover:text-blue-500"
             onClick={() => handleOpen('message')}
           >
             <MessageSvg size={20} />

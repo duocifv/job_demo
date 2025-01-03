@@ -11,7 +11,7 @@ const HeroCarousel: FC<{ className?: string; children: ReactNode }> = (p) => {
   const [startX, setStartX] = useState(0)
   const [startY, setStartY] = useState(0)
   const [isHorizontalSwipe, setIsHorizontalSwipe] = useState(false)
-  const [isVerticalSwipe, setIsVerticalSwipe] = useState(0)
+  const [isVerticalSwipe, setIsVerticalSwipe] = useState(null)
   const [current, setCurrent] = useState(0)
   const [count, setCount] = useState(0)
 
@@ -110,7 +110,7 @@ const HeroCarousel: FC<{ className?: string; children: ReactNode }> = (p) => {
       className={classNames(
         'products-container',
         p.className,
-        isVerticalSwipe < 6 && 'sortable-handler'
+        isVerticalSwipe < 6 && isVerticalSwipe !== null && 'sortable-handler'
       )}
     >
       {item > 0 && (

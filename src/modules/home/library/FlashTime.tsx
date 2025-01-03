@@ -5,7 +5,7 @@ import styles from '../stylesheet/FlashSale.module.scss'
 const formatTime = (time) => (time < 10 && time > -9 ? `0${time}` : time)
 
 const FlashTime = () => {
-  const endTime = new Date('2024-12-31T00:00:00').getTime()
+  const endTime = new Date('2025-01-31T00:00:00').getTime()
   const [timeLeft, setTimeLeft] = useState(null)
 
   const hours =
@@ -33,7 +33,7 @@ const FlashTime = () => {
   }, [endTime])
 
   return (
-    <div className="column-center">
+    <div className="column-center font-sans">
       <code className={styles.flashsaleTimerCode}>{formatTime(hours)}</code>:
       <code className={styles.flashsaleTimerCode}>{formatTime(minutes)}</code>:
       <code className={styles.flashsaleTimerCode}>{formatTime(seconds)}</code>

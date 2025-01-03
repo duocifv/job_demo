@@ -46,7 +46,8 @@ const Modal: FC<ModalProps> = ({
       className={classNames(
         'fixed inset-0 z-40 flex flex-col justify-end bg-black bg-opacity-50'
       )}
-      tabIndex={0} // Thêm tabIndex={0}
+      tabIndex={0}
+      onTouchStart={onClose}
       onKeyDown={(e) => {
         if (e.key === 'Enter' || e.key === ' ') onClose() // Thêm sự kiện bàn phím
       }}
@@ -59,12 +60,12 @@ const Modal: FC<ModalProps> = ({
           'effect bottom-0 relative w-full max-w-lg mx-auto bg-white rounded-lg shadow-lg'
         )}
         style={style}
-        onClick={(e) => e.stopPropagation()} // Prevent modal close on content click
+        onTouchStart={(e) => e.stopPropagation()}
+        onClick={(e) => e.stopPropagation()}
         onKeyDown={(e) => {
-          if (e.key === 'Enter' || e.key === ' ') onClose() // Thêm sự kiện bàn phím
+          if (e.key === 'Enter' || e.key === ' ') onClose()
         }}
       >
-        {/* Close Button */}
         <button
           onClick={onClose}
           aria-label="Close modal"
@@ -73,14 +74,12 @@ const Modal: FC<ModalProps> = ({
           ✕
         </button>
 
-        {/* Modal Header */}
         <div className={classNames('px-6 py-4 border-b')}>
           <h2 id="modal-title" className="text-lg font-semibold text-gray-800">
             {title}
           </h2>
         </div>
 
-        {/* Modal Content */}
         <div
           className={classNames(
             'px-6 py-4 overflow-y-scroll max-h-[62vh] pb-12',

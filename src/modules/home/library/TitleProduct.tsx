@@ -7,11 +7,11 @@ const TitleProduct: FC<{
 }> = (p) => {
   return (
     <div className="column-between home-container">
-      <h2 className="text-base md:text-2xl font-bold tracking-tight text-dark">
+      <h2 className="text-lg md:text-2xl font-bold tracking-tight text-dark">
         {p?.copy}
       </h2>
       <Link
-        className="text-sm md:text-base inline-flex items-center hidden md:block"
+        className="text-sm md:text-base pb-2 items-center hidden md:inline-flex"
         href={p?.href}
       >
         Xem tất cả

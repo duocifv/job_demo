@@ -84,9 +84,8 @@
       &-scarousel {
         &-items {
           height: calc(100% - 68px);
-          height: 580px;
           position: relative;
-          @apply flex-col md:flex-row;
+          @apply flex-col md:flex-row items-start justify-start;
         }
 
         &-item {
@@ -104,13 +103,11 @@
           color: #000;
           height: 100%;
           border-radius: 24px;
-          overflow: hidden;
           border: 1px solid #dcdcdc;
 
           img {
-            object-fit: cover;
             width: 100% !important;
-            height: 100% !important;
+            height: auto !important;
           }
         }
       }

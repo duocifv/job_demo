@@ -4,11 +4,10 @@ import { FC, ReactNode } from 'react'
 
 const HeaderLogo: FC<{ children: ReactNode }> = ({ children }) => {
   const param = usePathname()
-  console.log('param', param)
   if (!param.includes('sanpham')) {
     return children
   }
-  return null
+  return <div className="hidden md:block">{children}</div>
 }
 
 export default HeaderLogo
