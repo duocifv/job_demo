@@ -27,7 +27,7 @@ export const flashSaleService = async () => {
       flash_sale_start: '2024-12-15 08:00:00',
       flash_sale_end: '2024-12-17 18:00:00',
       image:
-        'https://cms.duocnv.top/wp-content/uploads/2024/12/product-dony-_d_1debb7480c3b4a79a139bfca07c70fe2_master.webp',
+        'https://product.hstatic.net/200000657377/product/product-dony-_d_1debb7480c3b4a79a139bfca07c70fe2_grande.jpg',
     },
     {
       id: 131,
@@ -39,7 +39,7 @@ export const flashSaleService = async () => {
       flash_sale_start: '2024-12-15 08:00:00',
       flash_sale_end: '2024-12-17 08:00:00',
       image:
-        'https://cms.duocnv.top/wp-content/uploads/2024/12/product-dony-_1__f3760f74a16d4e2fa9b9c0f8db9cccc4_master.webp',
+        'https://product.hstatic.net/200000657377/product/product-dony-_1__f3760f74a16d4e2fa9b9c0f8db9cccc4_master.jpg',
     },
     {
       id: 126,
@@ -50,7 +50,7 @@ export const flashSaleService = async () => {
       flash_sale_start: '2024-12-15 08:00:00',
       flash_sale_end: '2024-12-17 08:00:00',
       image:
-        'https://cms.duocnv.top/wp-content/uploads/2024/12/3_72ecfb7494eb4410bf2d0c461314d169_master.webp',
+        'https://product.hstatic.net/200000657377/product/1_f72b782908f34d9e87416180da906d46_master.jpg',
     },
     {
       id: 124,
@@ -62,7 +62,7 @@ export const flashSaleService = async () => {
       flash_sale_start: '2024-12-15 08:00:00',
       flash_sale_end: '2024-12-17 08:00:00',
       image:
-        'https://cms.duocnv.top/wp-content/uploads/2024/12/sssss_637382f482314cd8961ab641d68be148_master.webp',
+        'https://product.hstatic.net/200000657377/product/product-dony-_1__bd766fb2621e4945b835d289057c75bd_master.jpg',
     },
     {
       id: 75,
@@ -74,7 +74,7 @@ export const flashSaleService = async () => {
       flash_sale_start: '2024-12-15 19:00:00',
       flash_sale_end: '2024-12-16 22:00:00',
       image:
-        'https://cms.duocnv.top/wp-content/uploads/2024/12/2_4e5761b9ce204d749ea4cb11b8e0ed76_master.webp',
+        'https://product.hstatic.net/200000657377/product/2_4e5761b9ce204d749ea4cb11b8e0ed76_master.jpg',
     },
   ]
 }
