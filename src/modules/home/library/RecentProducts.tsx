@@ -8,8 +8,8 @@ const products = [
   {
     id: 1,
     title: 'Dép nữ Crocs Platform Classic đế cao, chống trơn trượt',
-    price: '371,250',
-    sale_price: '1,237,500',
+    price: '371250',
+    sale_price: '1237500',
     image:
       'https://product.hstatic.net/200000657377/product/bb_f10a27cf99ec4d0fbab3b4d3acae884a_master.jpg',
   },
@@ -78,7 +78,7 @@ const products = [
 // Component chính hiển thị danh sách sản phẩm
 const RecentProducts = () => {
   return (
-    <div className="md:max-w-[946px] lg:max-w-full md:pr-4 mx-auto">
+    <div className="md:max-w-[946px] pb-0 md:pb-24 lg:max-w-full md:pr-4 mx-auto">
       <TitleProduct copy="Sản phẩm mới" href="/view-more" />
       <ProductsCarousel>
         {products?.map((product) => (
