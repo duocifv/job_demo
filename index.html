@@ -3,25 +3,13 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
-  <title>Simple Mobile VR Player (A-Frame) — Cardboard</title>
-
-  <!-- A-Frame -->
+  <title>Mobile VR Player — Cardboard (fix)</title>
   <script src="https://aframe.io/releases/1.4.1/aframe.min.js"></script>
-
   <style>
     html,body { height:100%; margin:0; background:#000; color:#fff; font-family:Arial, sans-serif;}
-    #ui {
-      position: absolute; z-index: 20; left: 12px; top: 12px;
-      background: rgba(0,0,0,0.55); padding:10px; border-radius:8px; width:240px;
-    }
+    #ui { position: absolute; z-index: 20; left:12px; top:12px; background: rgba(0,0,0,0.55); padding:10px; border-radius:8px; width:240px; }
     #ui input[type=file], #ui button { margin:6px 0; display:block; width:100%; }
-    #note { font-size:12px; opacity:0.95; margin-top:6px; line-height:1.2 }
-    #enterVrBtn { background:#1e90ff; color:#fff; padding:8px; border:0; border-radius:6px; font-weight:600; }
-    #enableMotion { background:#22c55e; color:#fff; padding:6px; border:0; border-radius:6px; }
-    #playBtn { background:#ff8c00; color:#fff; padding:8px; border:0; border-radius:6px; font-weight:600; }
-    a-scene { height:100vh; width:100vw; }
-    /* hide default A-Frame enter VR button so we use our own button */
-    .a-enter-vr { display: none !important; }
+    .a-enter-vr { display:none !important; } /* hide aframe default */
   </style>
 </head>
 <body>
@@ -30,50 +18,42 @@
     <button id="playBtn">Play</button>
     <button id="enableMotion">Enable Motion (Gyro)</button>
     <label style="font-size:13px; display:block; margin-top:6px;">
-      <input type="checkbox" id="stereoCheck"> Treat as Side-By-Side (SBS) stereo (experimental)
+      <input type="checkbox" id="stereoCheck"> Treat as Side-By-Side (SBS)
     </label>
-    <button id="enterVrBtn">Enter VR / Fullscreen</button>
-    <div id="note">
-      Hướng dẫn ngắn:
-      <ol style="padding-left:16px; margin:6px 0;">
-        <li>Chọn file MP4 trên iPhone (H.264/H.265).</li>
-        <li>Nhấn Play (bắt buộc gesture trên iOS).</li>
-        <li>Nhấn Enable Motion để cấp quyền gyro (iOS 13+).</li>
-        <li>Enter VR → bỏ vào Cardboard.</li>
-      </ol>
+    <button id="enterVrBtn">Enter VR</button>
+    <div style="font-size:12px; opacity:0.95; margin-top:6px;">
+      Chú ý: Chọn MP4 (H.264/HEVC). Nếu iPhone báo không hỗ trợ codec, hãy convert sang H.264.
     </div>
   </div>
 
-  <!-- A-Frame scene: bật vr-mode-ui để có chế độ VR/Cardboard -->
   <a-scene vr-mode-ui="enabled: true" embedded renderer="logarithmicDepthBuffer: true">
-    <!-- camera rig -->
     <a-entity id="cameraRig">
       <a-entity id="camera" camera look-controls="enabled: true; touchEnabled: true" position="0 1.6 0"></a-entity>
     </a-entity>
 
-    <!-- Monoscopic equirectangular (default) -->
+    <!-- sphere (monoscopic) -->
     <a-videosphere id="monoSphere" rotation="0 -90 0" src="#videoEl" visible="false"></a-videosphere>
 
-    <!-- SBS: two planes placed close to camera for Cardboard (faster than canvas) -->
+    <!-- SBS planes -->
     <a-entity id="sbsPlanes" visible="false">
       <a-plane id="leftPlane" position="-0.035 1.6 -0.8" rotation="0 0 0" width="0.8" height="0.5" material="shader: flat; side: double;"></a-plane>
       <a-plane id="rightPlane" position="0.035 1.6 -0.8" rotation="0 0 0" width="0.8" height="0.5" material="shader: flat; side: double;"></a-plane>
     </a-entity>
 
-    <!-- Hidden video element used as texture -->
+    <!-- IMPORTANT: do NOT use display:none — put the video offscreen but present -->
     <video id="videoEl"
            crossorigin="anonymous"
            playsinline
            webkit-playsinline
            loop
            muted
-           style="display:none"></video>
+           style="position:absolute; left:-9999px; width:2px; height:2px; opacity:0.01;"></video>
 
     <a-sky color="#000"></a-sky>
   </a-scene>
 
 <script>
-(function () {
+(function(){
   const fileInput = document.getElementById('fileInput');
   const videoEl = document.getElementById('videoEl');
   const monoSphere = document.getElementById('monoSphere');
@@ -86,102 +66,99 @@
   const enterVrBtn = document.getElementById('enterVrBtn');
   const stereoCheck = document.getElementById('stereoCheck');
 
-  // set video src when user picks file
+  let currentBlobUrl = null;
+
   fileInput.addEventListener('change', (e) => {
     const f = e.target.files && e.target.files[0];
     if (!f) return alert('Bạn chưa chọn video.');
-    if (videoEl.src && videoEl.src.startsWith('blob:')) URL.revokeObjectURL(videoEl.src);
-    videoEl.src = URL.createObjectURL(f);
+    // revoke old
+    if (currentBlobUrl) URL.revokeObjectURL(currentBlobUrl);
+    currentBlobUrl = URL.createObjectURL(f);
+    videoEl.src = currentBlobUrl;
     videoEl.load();
-    // reset UI
-    stereoCheck.checked = false;
-    setMode();
+    // hide both until playable
+    monoSphere.setAttribute('visible','false');
+    sbsPlanes.setAttribute('visible','false');
   });
 
-  // user must press play (iOS gesture)
+  // user must press Play -> user gesture
   playBtn.addEventListener('click', async () => {
+    if (!videoEl.src) return alert('Chọn video trước khi Play.');
+
     try {
       await videoEl.play();
     } catch (err) {
-      console.warn('Play blocked:', err);
-      alert('Không thể play tự động. Hãy thử nhấn Enter VR rồi bấm Play trong giao diện nếu cần.');
+      console.warn('video.play() failed:', err);
+      alert('Không thể play video. Có thể codec không được hỗ trợ trên iPhone hoặc file quá nặng.');
+      return;
     }
+    // when playing, enable the proper render mode
     setMode();
   });
 
-  // request gyro permission on iOS 13+
-  enableMotionBtn.addEventListener('click', async () => {
-    if (typeof DeviceOrientationEvent !== 'undefined' &&
-        typeof DeviceOrientationEvent.requestPermission === 'function') {
-      try {
-        const res = await DeviceOrientationEvent.requestPermission();
-        if (res === 'granted') alert('Đã cấp phép Motion.');
-        else alert('Bạn đã từ chối cấp phép Motion.');
-      } catch (err) {
-        console.warn('requestPermission error', err);
-        alert('Không thể yêu cầu permission tự động — thử mở Settings nếu cần.');
-      }
-    } else {
-      alert('Thiết bị không yêu cầu cấp phép motion hoặc trình duyệt không hỗ trợ requestPermission.');
-    }
+  // when the video can paint frames, show the sphere/planes
+  videoEl.addEventListener('canplay', () => {
+    // this event chỉ báo sẵn sàng stream, nhưng có thể vẫn chưa play -> phụ thuộc
+    console.log('video canplay');
+  });
+  // when actually playing frames
+  videoEl.addEventListener('playing', () => {
+    console.log('video playing -> enable geometry');
+    setMode(); // ensure materials are set and visible
   });
 
-  // Enter VR (A-Frame handles split-screen / WebXR)
-  enterVrBtn.addEventListener('click', () => {
-    // try to play first if paused
-    if (videoEl && videoEl.paused) videoEl.play().catch(()=>{});
-    const scene = document.querySelector('a-scene');
-    if (scene && typeof scene.enterVR === 'function') {
-      scene.enterVR();
-    } else {
-      // fallback fullscreen
-      document.documentElement.requestFullscreen?.();
-    }
-  });
-
-  // toggle mode (mono sphere or SBS planes)
-  stereoCheck.addEventListener('change', setMode);
-  function setMode() {
+  // set display mode
+  function setMode(){
     const isSBS = stereoCheck.checked;
-    // if no src yet, ignore
-    if (!videoEl.src) {
-      monoSphere.setAttribute('visible', 'false');
-      sbsPlanes.setAttribute('visible', 'false');
-      return;
-    }
-
-    if (isSBS) {
-      // show SBS planes
-      sbsPlanes.setAttribute('visible', 'true');
-      monoSphere.setAttribute('visible', 'false');
-
-      // set material offsets to show left/right half of the video as texture
-      // left: offset 0,0 repeat 0.5,1  ; right: offset 0.5,0 repeat 0.5,1
+    if (isSBS){
+      sbsPlanes.setAttribute('visible','true');
+      monoSphere.setAttribute('visible','false');
+      // left half and right half using repeat/offset
       leftPlane.setAttribute('material', `shader: flat; src: #videoEl; side: double; repeat: 0.5 1; offset: 0 0;`);
       rightPlane.setAttribute('material', `shader: flat; src: #videoEl; side: double; repeat: 0.5 1; offset: 0.5 0;`);
     } else {
-      // show monoscopic sphere (equirectangular)
-      sbsPlanes.setAttribute('visible', 'false');
-      monoSphere.setAttribute('visible', 'true');
+      sbsPlanes.setAttribute('visible','false');
+      monoSphere.setAttribute('visible','true');
       monoSphere.setAttribute('material', 'src: #videoEl; side:back; shader:flat;');
     }
   }
 
-  // cleanup blob urls
-  window.addEventListener('pagehide', () => {
-    if (videoEl && videoEl.src && videoEl.src.startsWith('blob:')) URL.revokeObjectURL(videoEl.src);
+  stereoCheck.addEventListener('change', () => {
+    // if video playing, immediately update
+    setMode();
   });
 
-  // small auto-set when video metadata is loaded
-  videoEl.addEventListener('loadedmetadata', () => {
-    // if video looks like SBS (width >= 2*height) suggest check
-    const w = videoEl.videoWidth || 0;
-    const h = videoEl.videoHeight || 0;
-    if (w >= 2*h) {
-      // likely SBS or side-by-side 3D
-      // don't auto-toggle but hint user
-      console.log('Video appears wide (possible SBS). You can tick "Treat as Side-By-Side".');
+  enableMotionBtn.addEventListener('click', async () => {
+    if (typeof DeviceOrientationEvent !== 'undefined' && typeof DeviceOrientationEvent.requestPermission === 'function') {
+      try {
+        const r = await DeviceOrientationEvent.requestPermission();
+        if (r === 'granted') alert('Đã cấp phép gyro.');
+        else alert('Từ chối gyro.');
+      } catch (err) {
+        console.warn('requestPermission err', err);
+        alert('Không thể yêu cầu permission.');
+      }
+    } else {
+      alert('Thiết bị không yêu cầu requestPermission.');
     }
+  });
+
+  enterVrBtn.addEventListener('click', () => {
+    if (videoEl.paused) {
+      // try to play if paused
+      videoEl.play().catch(()=>{});
+    }
+    const scene = document.querySelector('a-scene');
+    if (scene && typeof scene.enterVR === 'function') {
+      scene.enterVR();
+    } else {
+      document.documentElement.requestFullscreen?.();
+    }
+  });
+
+  // cleanup
+  window.addEventListener('pagehide', () => {
+    if (currentBlobUrl) URL.revokeObjectURL(currentBlobUrl);
   });
 
 })();
